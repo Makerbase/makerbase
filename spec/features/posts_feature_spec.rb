@@ -31,5 +31,16 @@ feature 'posts' do
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
+
+    scenario 'with tags' do
+      visit '/'
+      click_link 'Add a link'
+      fill_in 'Title', with: 'Ultimate Resource'
+      fill_in 'Link', with: 'www.google.com'
+      fill_in 'Tags', with: 'ruby, makers, beginner'
+      click_button 'Submit'
+      expect(page).to have_content('ruby')
+      expect(page).to have_content('beginner')
+    end
   end
 end
