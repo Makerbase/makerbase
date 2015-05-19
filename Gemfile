@@ -33,6 +33,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+gem 'devise_token_auth'
+gem 'omniauth'
+gem 'omniauth-github'
+
+
 
 group :development, :test do
   gem 'rspec-rails'
