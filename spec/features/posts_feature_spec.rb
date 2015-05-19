@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'posts' do
   context 'no posts/resources have been added' do
     scenario 'should prompt to add a post' do
-      visit '/'
+      visit '/posts'
       expect(page).to have_content 'No links yet'
       expect(page).to have_link 'Add a link'
     end
@@ -15,7 +15,7 @@ feature 'posts' do
     end
     scenario 'display posts' do
       p Post.all
-      visit '/'
+      visit '/posts'
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
@@ -23,7 +23,7 @@ feature 'posts' do
 
   context 'user adding posts' do
     scenario 'user adds a post' do
-      visit '/'
+      visit '/posts'
       click_link 'Add a link'
       fill_in 'Title', with: 'Ultimate Resource'
       fill_in 'Link', with: 'www.google.com'
@@ -33,7 +33,7 @@ feature 'posts' do
     end
 
     scenario 'with tags' do
-      visit '/'
+      visit '/posts'
       click_link 'Add a link'
       fill_in 'Title', with: 'Ultimate Resource'
       fill_in 'Link', with: 'www.google.com'
