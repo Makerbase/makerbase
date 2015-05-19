@@ -6,5 +6,10 @@ feature 'users' do
       visit '/'
       expect(page).to have_link 'Sign in with Github'
     end
+    
+    # scenario 'redirected to home when trying to access other pages' do
+    #   visit '/posts'
+    #   expect(current_path).to eq '/' 
+    # end
   end
 end
