@@ -15,6 +15,6 @@ class PostsController < ApplicationController
   private
 
   def new_params
-    params.require(:post).permit(:title, :link)
+    params.require(:post).permit(:title, :link, :all_tags)
   end
 end
