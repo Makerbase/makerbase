@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519151304) do
+ActiveRecord::Schema.define(version: 20150519154706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150519151304) do
     t.integer  "dislikes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "tagging_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150519151304) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "tagging_id"
   end
 
   add_foreign_key "taggings", "posts"
