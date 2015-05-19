@@ -1,2 +1,11 @@
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <article> 
+      <p><%= post.title %></p>
+      <a href="#"><%= post.link %></a>
+    </article>
+  <% end %>
+<% else %>
 No links yet
-<a href="#">Add a link</a>
+<% end %>  
+<%= link_to 'Add a link', new_post_path %>
