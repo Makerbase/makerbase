@@ -37,7 +37,7 @@ feature 'posts' do
       click_link 'Add a link'
       fill_in 'Title', with: 'Ultimate Resource'
       fill_in 'Link', with: 'www.google.com'
-      fill_in 'Tags', with: 'ruby, makers, beginner'
+      fill_in 'post_all_tags', with: 'ruby, makers, beginner'
       click_button 'Submit'
       expect(page).to have_content('ruby')
       expect(page).to have_content('beginner')
