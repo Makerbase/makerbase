@@ -8,4 +8,28 @@ feature 'posts' do
       expect(page).to have_link 'Add a link'
     end
   end
+
+  context 'posts/resources have been added' do
+    before do
+      Post.create(title: 'Ultimate Resource', link: 'www.google.com')
+    end
+    scenario 'display posts' do
+      p Post.all
+      visit '/'
+      expect(page).to have_content('Ultimate Resource')
+      expect(page).to have_content('www.google.com')
+    end
+  end
+
+  context 'user adding posts' do
+    scenario 'user adds a post' do
+      visit '/'
+      click_link 'Add a link'
+      fill_in 'Title', with: 'Ultimate Resource'
+      fill_in 'Link', with: 'www.google.com'
+      click_button 'Submit'
+      expect(page).to have_content('Ultimate Resource')
+      expect(page).to have_content('www.google.com')
+    end
+  end
 end
