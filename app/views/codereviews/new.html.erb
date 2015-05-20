@@ -1,0 +1,14 @@
+<%= form_for @codereview do |f| %>
+  <section>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+  </section>
+  <%= f.submit 'Submit' %>
+<% end %>
