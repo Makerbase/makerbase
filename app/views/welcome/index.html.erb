@@ -1,4 +1,8 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 
-<%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+<% if user_signed_in? %>
+  <a href="/posts">Posts</a>
+<% else %>
+  <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+<% end %>
