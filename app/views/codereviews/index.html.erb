@@ -1,2 +1,10 @@
-No reviews yet!
-<a href='#'>Request review</a>
+<% if @codereviews.any? %>
+  <% @codereviews.each do |codereview| %>
+    <h2><%= codereview.title %></h2>
+    <h2><%= codereview.url %></h2>
+  <% end %>
+<% else %>
+  <h1>No reviews yet</h1>
+<% end %>
+
+<a href="/codereviews/new">Request review</a>
