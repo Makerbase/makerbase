@@ -61,16 +61,16 @@ feature 'posts' do
     end
   end
 
-  # context 'deleting post' do
-  #   before {Post.create title: 'Ultimate Resource', link: 'www.google.com', tags: ['ruby', 'makers', 'beginner']}
+  context 'deleting post' do
+    before {Post.create title: 'Ultimate Resource', link: 'www.google.com', all_tags: 'ruby, makers, beginner'}
 
-  #   scenario 'removes a post when a user clicks delete button' do
-  #     visit '/posts'
-  #     click_button 'Delete'
-  #     expect(page).not_to have_content 'Ultimate Resource'
-  #     expect(page).to have_content 'Post deleted'
-  #   end
-  # end
+    scenario 'removes a post when a user clicks delete button' do
+      visit '/posts'
+      click_button 'Delete'
+      expect(page).not_to have_content 'Ultimate Resource'
+      expect(page).to have_content 'Post deleted'
+    end
+  end
 
   # xcontext 'editing posts' do
   #   before do

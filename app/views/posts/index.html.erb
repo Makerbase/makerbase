@@ -4,6 +4,7 @@
       <p><%= post.title %></p>
       <a href="#"><%= post.link %></a>
       <p><%= post.all_tags %></p>
+      <%= button_to "Delete", post_path(post), method: :delete %>
     </article>
   <% end %>
 <% else %>
