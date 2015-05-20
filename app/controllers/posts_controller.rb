@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
-  
-  # def index
-  #   if current_user
-  #     @posts = Post.all
-  #   else
-  #     redirect_to root_path
-  #   end
-  # end
 
   def index
-    @posts = Post.all
+    if current_user
+      @posts = Post.all
+    else
+      redirect_to root_path
+    end
   end
+
+  # def index
+  #   @posts = Post.all
+  # end
 
   def new
     @post = Post.new
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(new_params)
-    redirect_to posts_path 
+    redirect_to posts_path
   end
 
   def destroy
