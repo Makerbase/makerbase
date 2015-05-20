@@ -4,8 +4,10 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
+  config.secret_key = '25a0114e7562d55521e5dcc50ed1fd892a40e8a0d313a537faac8108e29c11e786e3942e00ca47dd4b587b6ee26399cee85b5fd52d3ea2116870d0a2c83d6f50'
   # config.omniauth :github, Rails.application.secrets.github_app_id, Rails.application.secrets.github_app_secret
-  config.secret_key = '58bb5c862e5f2d401475ea5d44d30b1de873279514959a7325915304d56e8960eaa38a933d763646662d614fd49463748a77daef1929f3bc77383049cf83c9bb'  # config.secret_key = '5cb92c2160ddbd9f4e53a20c87436f4dcc8589a4646fd523d2b2568ac9c48500def1ff9d6ec15235f7d16ca3dea33e5fa84cb7e8e3a61905f5a9f49a10880e64'
+  # config.secret_key = '5e3ce24306d16125bf1d465e6e5be71905fac07023f00288c9190ec874510e4d2dd79ff370e1df4e18815ae86cb4a023c766d32ee979006cb38cc132a4d45c0d'
+  # config.secret_key = '5cb92c2160ddbd9f4e53a20c87436f4dcc8589a4646fd523d2b2568ac9c48500def1ff9d6ec15235f7d16ca3dea33e5fa84cb7e8e3a61905f5a9f49a10880e64'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
