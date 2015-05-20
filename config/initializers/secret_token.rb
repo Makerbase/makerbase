@@ -1,0 +1,1 @@
+Makerbase::Application.config.secret_key_base = '00ba6b95cb50adae75173fc830464eb35d5f1a34a9265a5b1b53ff37793e116e4e8c9843ef3d6c9d66bcec9b211ef20c2737ab2b903d47e5f7a4bcd65d7894e0'
