@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'posts' do
+  include UsersHelper
 
   before(:each) do
     OmniAuth.config.test_mode = true
@@ -31,7 +32,6 @@ feature 'posts' do
       Post.create(title: 'Ultimate Resource', link: 'www.google.com')
     end
     scenario 'display posts' do
-      p Post.all
       visit '/posts'
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
@@ -41,21 +41,14 @@ feature 'posts' do
   context 'user adding posts' do
     scenario 'user adds a post' do
       visit '/posts'
-      click_link 'Add a link'
-      fill_in 'Title', with: 'Ultimate Resource'
-      fill_in 'Link', with: 'www.google.com'
-      click_button 'Submit'
+      add_post
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
 
     scenario 'with tags' do
       visit '/posts'
-      click_link 'Add a link'
-      fill_in 'Title', with: 'Ultimate Resource'
-      fill_in 'Link', with: 'www.google.com'
-      fill_in 'post_all_tags', with: 'ruby, makers, beginner'
-      click_button 'Submit'
+      add_post
       expect(page).to have_content('ruby')
       expect(page).to have_content('beginner')
     end
@@ -88,4 +81,12 @@ feature 'posts' do
   #     # expect(current_path).to eq '/posts'
   #   end
   # end
+
+  def add_post(title = 'Ultimate Resource', link = 'www.google.com', tags = 'ruby, makers, beginner')
+    click_link 'Add a link'
+    fill_in 'Title', with: title
+    fill_in 'Link', with: link
+    fill_in 'post_all_tags', with: tags
+    click_button 'Submit'
+  end
 end
