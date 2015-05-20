@@ -54,7 +54,7 @@ feature 'posts' do
     end
   end
 
-  context 'deleting post' do
+  xcontext 'deleting post' do
     before {Post.create title: 'Ultimate Resource', link: 'www.google.com', all_tags: 'ruby, makers, beginner'}
 
     scenario 'removes a post when a user clicks delete button' do
@@ -81,12 +81,4 @@ feature 'posts' do
   #     # expect(current_path).to eq '/posts'
   #   end
   # end
-
-  def add_post(title = 'Ultimate Resource', link = 'www.google.com', tags = 'ruby, makers, beginner')
-    click_link 'Add a link'
-    fill_in 'Title', with: title
-    fill_in 'Link', with: link
-    fill_in 'post_all_tags', with: tags
-    click_button 'Submit'
-  end
 end

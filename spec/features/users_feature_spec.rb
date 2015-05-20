@@ -9,7 +9,7 @@ feature 'users' do
       expect(page).to have_link 'Sign in with Github'
     end
 
-    xscenario 'redirected to home when trying to access other pages' do
+    scenario 'redirected to home when trying to access other pages' do
       visit posts_path
       expect(current_path).to eq '/'
     end
@@ -21,7 +21,7 @@ feature 'users' do
 
     scenario 'should not be able to delete resources' do
       visit '/posts/new'
-      expect(current_path).to eq '/'
+      expect(current_path).to eq '/users/sign_in'
     end
   end
 
@@ -63,14 +63,23 @@ feature 'users' do
       expect(page).to have_content('ruby, makers, beginner')
     end
 
-    scenario 'can edit post' do
+    scenario 'can only edit post that he created' do
+      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
       click_link 'Resources'
-      add_post
+      expect(page).to have_content('www.link.com')
       click_link 'Edit'
       fill_in 'Title', with: 'Title has been changed'
       click_button 'Update'
-      expect(page).to have_content('Title has been changed')
+      expect(page).to have_content('Cannot edit a post you haven\'t created')
     end
 
+    scenario 'can only delete post that he created' do
+      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
+      click_link 'Resources'
+      expect(page).to have_content('www.link.com')
+      click_button 'Delete'
+      expect(page).to have_content('www.link.com')
+      expect(page).to have_content('Cannot delete a post you haven\'t created')
+    end
   end
 end
