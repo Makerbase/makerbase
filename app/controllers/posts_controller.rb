@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    if current_user
+    # if current_user
       @posts = Post.all
-    else
-      redirect_to root_path
-    end
+    # else
+      # redirect_to root_path
+    # end
   end
 
   # def index
@@ -13,7 +13,11 @@ class PostsController < ApplicationController
   # end
 
   def new
-    @post = Post.new
+    if current_user
+      @post = Post.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -31,15 +35,15 @@ class PostsController < ApplicationController
   def show
   end
 
-  # def edit
-  #   @post = Post.find(new_params)
-  # end
+  def edit
+    @post = Post.find(params[:id])
+  end
 
-  # def update
-  #    @post = Post.find(new_params)
-  #    @post.update(post_params)
-  #    redirect_to '/posts'
-  # end
+  def update
+     @post = Post.find(params[:id])
+     @post.update(new_params)
+     redirect_to '/posts'
+  end
 
   private
 

@@ -1,1 +1,4 @@
 when deleting posts - tags are deleted through taggings. May need to try to delete through tags directly. Although works for now.
+
+we have temporarily disabled: index page redirecting to landing page when not signed in. This is so that we can actually test the site ourselves.
+  - we x'd line 10 of posts feature spec
