@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <a href="/posts">Resources</a>
   <a href="/posts">Forum</a>
-  <a href="/posts">Code Review</a>
+  <a href="/codereviews">Code Review</a>
 <% else %>
   <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
 <% end %>
