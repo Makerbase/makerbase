@@ -41,7 +41,7 @@ feature 'users' do
     end
 
     scenario 'should see link to posts' do
-      expect(page).to have_link 'Posts'
+      expect(page).to have_link 'Resources'
     end
 
     scenario 'should not see link to sign in' do
@@ -49,7 +49,7 @@ feature 'users' do
     end
 
     scenario 'can go to post page' do
-      click_link('Posts')
+      click_link 'Resources'
       expect(current_path).to eq posts_path
     end
 
