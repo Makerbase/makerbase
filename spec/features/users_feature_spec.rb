@@ -14,12 +14,12 @@ feature 'users' do
       expect(current_path).to eq '/'
     end
 
-    scenario 'should not see link to posts' do
+    scenario 'should not see link to Resources' do
       visit root_path
-      expect(page).not_to have_link 'Posts'
+      expect(page).not_to have_link 'Resources'
     end
 
-    scenario 'should not be able to delete posts' do
+    scenario 'should not be able to delete resources' do
       visit '/posts/new'
       expect(current_path).to eq '/'
     end
@@ -42,7 +42,7 @@ feature 'users' do
       OmniAuth.config.mock_auth[:github] = nil
     end
 
-    scenario 'should see link to posts' do
+    scenario 'should see link to resources' do
       expect(page).to have_link 'Resources'
     end
 
@@ -56,7 +56,7 @@ feature 'users' do
     end
 
     scenario 'can add post' do
-      click_link 'Posts'
+      click_link 'Resources'
       add_post
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
@@ -64,7 +64,7 @@ feature 'users' do
     end
 
     scenario 'can edit post' do
-      click_link 'Posts'
+      click_link 'Resources'
       add_post
       click_link 'Edit'
       fill_in 'Title', with: 'Title has been changed'
