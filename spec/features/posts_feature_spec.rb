@@ -1,6 +1,23 @@
 require 'rails_helper'
 
 feature 'posts' do
+
+  before(:each) do
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+      :provider => 'github',
+      :uid => '123545',
+      :info => { :email => 'sanj@sanj.com', :name => 'sanj' }
+      # etc.
+    })
+    visit root_path
+    click_link 'Sign in with Github'
+  end
+
+  after(:each) do
+    OmniAuth.config.mock_auth[:github] = nil
+  end
+
   context 'no posts/resources have been added' do
     scenario 'should prompt to add a post' do
       visit '/posts'
