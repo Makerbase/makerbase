@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'users' do
   include UsersHelper
+  include OmniauthHelper
 
   context 'when not signed in' do
     scenario 'should see link to sign in' do
@@ -27,19 +28,20 @@ feature 'users' do
 
   context 'when signed in' do
     before(:each) do
-      OmniAuth.config.test_mode = true
-      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-        :provider => 'github',
-        :uid => '123545',
-        :info => { :email => 'sanj@sanj.com', :name => 'sanj' }
-        # etc.
-      })
-      visit root_path
-      click_link 'Sign in with Github'
+      oauth_sign_in
+      # OmniAuth.config.test_mode = true
+      # OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+      #   :provider => 'github',
+      #   :uid => '123545',
+      #   :info => { :email => 'sanj@sanj.com', :name => 'sanj' }
+      #   # etc.
+      # })
+      # visit root_path
+      # click_link 'Sign in with Github'
     end
 
     after(:each) do
-      OmniAuth.config.mock_auth[:github] = nil
+      oauth_sign_out
     end
 
     scenario 'should see link to resources' do
@@ -50,12 +52,12 @@ feature 'users' do
       expect(page).not_to have_link 'Sign in with Github'
     end
 
-    scenario 'can go to post page' do
+    scenario 'can go to resources page' do
       click_link 'Resources'
       expect(current_path).to eq posts_path
     end
 
-    scenario 'can add post' do
+    scenario 'can add a post/resource' do
       click_link 'Resources'
       add_post
       expect(page).to have_content('Ultimate Resource')
@@ -63,7 +65,7 @@ feature 'users' do
       expect(page).to have_content('ruby, makers, beginner')
     end
 
-    scenario 'can only edit post that he created' do
+    scenario 'can only edit posts that he created' do
       Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
       click_link 'Resources'
       expect(page).to have_content('www.link.com')
