@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'code review' do
   include OmniauthHelper
+  include UsersHelper
 
   before(:each) do
     oauth_sign_in
@@ -32,28 +33,17 @@ feature 'code review' do
     end
   end
 
-  context 'user requests code review' do
-    scenario 'prompts user to fill out form' do
-      visit codereviews_path
-      click_link 'Request review'
-      fill_in 'Title', with: 'Please review my challenge'
-      fill_in 'Url', with: 'https://github.com/sanjsanj/gymbuddy'
-      click_button 'Submit'
+  context 'user submits request for code review' do
+    scenario 'displays the request' do
+      request_code_review
       expect(page).to have_content 'Please review my challenge'
       expect(current_path).to eq codereviews_path
     end
-  end
 
-  context 'viewing code review requests' do
-
-    scenario 'visit code reviews path', :js => true do
-     visit codereviews_path
-     click_link 'Request review'
-     fill_in 'Title', with: 'Please review my challenge'
-     fill_in 'Url', with: 'https://github.com/sanjsanj/gymbuddy'
-     click_button 'Submit'
-     click_link 'https://github.com/sanjsanj/gymbuddy'
-     expect(current_path).to eq "/sanjsanj/gymbuddy"
+    scenario 'has URL for repository to be reviewed', :js => true do
+      request_code_review
+      click_link 'https://github.com/sanjsanj/gymbuddy'
+      expect(current_path).to eq "/sanjsanj/gymbuddy"
     end
   end
 end

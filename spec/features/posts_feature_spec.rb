@@ -1,38 +1,33 @@
 require 'rails_helper'
 
 feature 'posts' do
+  include OmniauthHelper
   include UsersHelper
 
   before(:each) do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-      :provider => 'github',
-      :uid => '123545',
-      :info => { :email => 'sanj@sanj.com', :name => 'sanj' }
-      # etc.
-    })
-    visit root_path
-    click_link 'Sign in with Github'
+    oauth_sign_in
   end
 
   after(:each) do
-    OmniAuth.config.mock_auth[:github] = nil
+    oauth_sign_out
   end
 
   context 'no posts/resources have been added' do
     scenario 'should prompt to add a post' do
-      visit '/posts'
+      visit posts_path
       expect(page).to have_content 'No links yet'
       expect(page).to have_link 'Add a link'
     end
   end
 
   context 'posts/resources have been added' do
+
     before do
       Post.create(title: 'Ultimate Resource', link: 'www.google.com')
     end
+
     scenario 'display posts' do
-      visit '/posts'
+      visit posts_path
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
@@ -40,14 +35,14 @@ feature 'posts' do
 
   context 'user adding posts' do
     scenario 'user adds a post' do
-      visit '/posts'
+      visit posts_path
       add_post
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
 
     scenario 'with tags' do
-      visit '/posts'
+      visit posts_path
       add_post
       expect(page).to have_content('ruby')
       expect(page).to have_content('beginner')
@@ -58,7 +53,7 @@ feature 'posts' do
     before {Post.create title: 'Ultimate Resource', link: 'www.google.com', all_tags: 'ruby, makers, beginner'}
 
     scenario 'removes a post when a user clicks delete button' do
-      visit '/posts'
+      visit posts_path
       click_button 'Delete'
       expect(page).not_to have_content 'Ultimate Resource'
       expect(page).to have_content 'Post deleted'

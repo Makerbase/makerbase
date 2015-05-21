@@ -14,7 +14,7 @@ feature 'ratings system (likes and dislikes)' do
 
   context 'likes a resource, which updates like count by one' do
     scenario 'user rates resource' do
-    visit '/posts'
+    visit posts_path
     add_post
     expect(page).to have_content('Ultimate Resource')
     click_button 'Like'
