@@ -6,7 +6,6 @@ class CodereviewsController < ApplicationController
     # else
     #   redirect_to root_path
     # end
-    # @user = User.find(params[:id])
   end
 
   def new

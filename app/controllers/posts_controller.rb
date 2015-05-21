@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -8,10 +9,6 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
   end
-
-  # def index
-  #   @posts = Post.all
-  # end
 
   def new
     if current_user
@@ -37,10 +34,10 @@ class PostsController < ApplicationController
     if current_user.id == @post.user_id
       @post.destroy
       flash[:notice] = 'Post deleted'
-      redirect_to '/posts'
+      redirect_to posts_path
     else
       flash[:notice] = 'Cannot delete a post you haven\'t created'
-      redirect_to '/posts'
+      redirect_to posts_path
     end
   end
 
@@ -55,10 +52,10 @@ class PostsController < ApplicationController
      @post = Post.find(params[:id])
      if current_user.id == @post.user_id
        @post.update(new_params)
-       redirect_to '/posts'
+       redirect_to posts_path
      else
       flash[:notice] = 'Cannot edit a post you haven\'t created'
-      redirect_to '/posts'
+      redirect_to posts_path
      end
   end
 
