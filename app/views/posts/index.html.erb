@@ -1,6 +1,6 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <article> 
+    <article>
       <p><%= post.title %></p>
       <p>Likes: <%= post.likes %></p>
       <p>Dislikes: <%= post.dislikes %></p>
@@ -15,5 +15,5 @@
   <% end %>
 <% else %>
 No links yet
-<% end %>  
+<% end %>
 <%= link_to 'Add a link', new_post_path %>

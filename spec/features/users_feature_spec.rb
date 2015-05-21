@@ -27,6 +27,7 @@ feature 'users' do
   end
 
   context 'when signed in' do
+
     before(:each) do
       oauth_sign_in
     end

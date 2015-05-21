@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   root 'welcome#index'
   post 'posts/:post_id/ratings/like/:id' => 'ratings#like', as: :like
   post 'posts/:post_id/ratings/dislike/:id' => 'ratings#dislike', as: :dislike
+
   resources :posts do
     resources :ratings
   end

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150521125930) do
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|

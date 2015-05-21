@@ -22,14 +22,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(new_params)
+    @post = Post.new(new_params)
     @post.user_id = current_user.id
-    @post.author = current_user.email # should change this to some kind of username
+    @post.author = current_user.name # should change this to some kind of username
     if @post.save
       redirect_to posts_path
     else
       render 'new'
-    end  
+    end
   end
 
   def destroy

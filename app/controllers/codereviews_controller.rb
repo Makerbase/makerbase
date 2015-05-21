@@ -1,7 +1,12 @@
 class CodereviewsController < ApplicationController
 
   def index
+    # if current_user
     @codereviews = Codereview.all
+    # else
+    #   redirect_to root_path
+    # end
+    # @user = User.find(params[:id])
   end
 
   def new
@@ -9,11 +14,16 @@ class CodereviewsController < ApplicationController
   end
 
   def create
-    @codereview = Codereview.create(codereview_params)
-    redirect_to codereviews_path
+    @codereview = Codereview.new(codereview_params)
+    @codereview.user_id = current_user.id
+    if @codereview.save
+      redirect_to codereviews_path
+    else
+      render 'new'
+    end
   end
 
   def codereview_params
-    params.require(:codereview).permit(:title, :url)
+    params.require(:codereview).permit(:title, :url, :user_id)
   end
 end

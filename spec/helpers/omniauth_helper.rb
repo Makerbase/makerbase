@@ -4,8 +4,7 @@ module OmniauthHelper
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
       :provider => 'github',
       :uid => '123545',
-      :info => { :email => 'sanj@sanj.com', :name => 'sanj' }
-      # etc.
+      :info => { :login => 'Sanjay Purswani' }
     })
     visit root_path
     click_link 'Sign in with Github'

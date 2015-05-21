@@ -35,6 +35,7 @@ gem 'omniauth-github'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # gem 'launchy'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
@@ -47,4 +48,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end

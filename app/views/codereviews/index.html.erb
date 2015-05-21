@@ -1,7 +1,9 @@
 <% if @codereviews.any? %>
   <% @codereviews.each do |codereview| %>
     <h2><%= codereview.title %></h2>
-    <h2><%= codereview.url %></h2>
+    <h2><%= link_to codereview.url, url_for(codereview.url) %></h2>
+    <p><%= codereview.user.name if codereview.user %></p>
+    <p><img src="<%= codereview.user.image if codereview.user %>"></p>
   <% end %>
 <% else %>
   <h1>No reviews yet</h1>
