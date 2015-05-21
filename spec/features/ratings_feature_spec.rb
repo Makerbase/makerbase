@@ -12,11 +12,13 @@ feature 'ratings system (likes and dislikes)' do
     oauth_sign_out
   end
 
-  scenario 'user can like a resource, which updates like count by one' do
+  context 'likes a resource, which updates like count by one' do
+    scenario 'user rates resource' do
     visit '/posts'
     add_post
     expect(page).to have_content('Ultimate Resource')
     click_button 'Like'
     expect(page).to have_content('Likes: 1')
+    end
   end
 end
