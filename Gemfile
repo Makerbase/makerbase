@@ -35,7 +35,7 @@ gem 'omniauth-github'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'launchy'
+  # gem 'launchy'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
