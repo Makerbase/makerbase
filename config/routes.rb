@@ -2,11 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'welcome#index'
+  post 'posts/:post_id/ratings/like/:id' => 'ratings#like', as: :like
+  post 'posts/:post_id/ratings/dislike/:id' => 'ratings#dislike', as: :dislike
   resources :posts do
     resources :ratings
   end
 
   resources :codereviews
+
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
