@@ -12,7 +12,7 @@ feature 'ratings system (likes and dislikes)' do
     oauth_sign_out
   end
 
-  scenario 'user can like a resource, which updates like count by one' do
+  xscenario 'user can like a resource, which updates like count by one' do
     visit '/posts'
     add_post
     expect(page).to have_content('Ultimate Resource')

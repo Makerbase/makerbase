@@ -52,13 +52,8 @@ feature 'code review' do
      fill_in 'Title', with: 'Please review my challenge'
      fill_in 'Url', with: 'https://github.com/sanjsanj/gymbuddy'
      click_button 'Submit'
-     puts '---' * 10
-     p params
      click_link 'https://github.com/sanjsanj/gymbuddy'
      expect(current_path).to eq "/sanjsanj/gymbuddy"
     end
   end
-
-
-
 end
