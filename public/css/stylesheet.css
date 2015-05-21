@@ -1,3 +1,12 @@
 body {
   background-color: rgb(169, 29, 42);
 }
+
+.navbar-header .navbar-text {
+  color: rgb(169, 29, 42);
+  font-size: 150%;
+}
+
+.jumbotron {
+  padding: 2em 5em;
+}
