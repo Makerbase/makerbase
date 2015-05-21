@@ -6,7 +6,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 require 'helpers/omniauth_helper'
-require_relative 'helpers/users_helper'
+require 'helpers/users_helper'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
