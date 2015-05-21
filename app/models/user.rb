@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
 
+  validates_presence_of :uid, :name#, :github_token
+  validates_uniqueness_of :uid, :name
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = '#{user.name}@mailinator.com'
