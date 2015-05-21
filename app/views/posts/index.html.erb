@@ -2,11 +2,13 @@
   <% @posts.each do |post| %>
     <article> 
       <p><%= post.title %></p>
+      <p>Likes: <%= post.likes %></p>
       <%= link_to post.link, "http://#{post.link}" %>
       <p>posted by: <%= post.author %></p>
       <p><%= post.all_tags %></p>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= button_to "Delete", post_path(post), method: :delete %>
+      <%= button_to 'Like', post_ratings_path(post), method: :create %>
     </article>
   <% end %>
 <% else %>
