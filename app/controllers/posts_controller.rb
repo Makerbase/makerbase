@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    # if current_user
+    if current_user
       @posts = Post.all
-    # else
-      # redirect_to root_path
-    # end
+    else
+      redirect_to root_path
+    end
   end
 
   # def index
@@ -22,14 +23,25 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(new_params)
-    redirect_to posts_path
+    @post.user_id = current_user.id
+    @post.author = current_user.email # should change this to some kind of username
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
+    end  
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    flash[:notice] = 'Post deleted'
-    redirect_to '/posts'
+    if current_user.id == @post.user_id
+      @post.destroy
+      flash[:notice] = 'Post deleted'
+      redirect_to '/posts'
+    else
+      flash[:notice] = 'Cannot delete a post you haven\'t created'
+      redirect_to '/posts'
+    end
   end
 
   def show
@@ -41,8 +53,13 @@ class PostsController < ApplicationController
 
   def update
      @post = Post.find(params[:id])
-     @post.update(new_params)
-     redirect_to '/posts'
+     if current_user.id == @post.user_id
+       @post.update(new_params)
+       redirect_to '/posts'
+     else
+      flash[:notice] = 'Cannot edit a post you haven\'t created'
+      redirect_to '/posts'
+     end
   end
 
   private

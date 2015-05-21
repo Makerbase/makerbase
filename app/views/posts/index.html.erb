@@ -2,7 +2,8 @@
   <% @posts.each do |post| %>
     <article> 
       <p><%= post.title %></p>
-      <a href="#"><%= post.link %></a>
+      <%= link_to post.link, "http://#{post.link}" %>
+      <p>posted by: <%= post.author %></p>
       <p><%= post.all_tags %></p>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= button_to "Delete", post_path(post), method: :delete %>

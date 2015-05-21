@@ -2,3 +2,5 @@ when deleting posts - tags are deleted through taggings. May need to try to dele
 
 we have temporarily disabled: index page redirecting to landing page when not signed in. This is so that we can actually test the site ourselves.
   - we x'd line 10 of posts feature spec
+
+at the moment we are displaying the email of the creator of a post, not the username. Need this from Git
