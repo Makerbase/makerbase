@@ -33,4 +33,26 @@ feature 'code review' do
       expect(current_path).to eq codereviews_path
     end
   end
+
+  context 'viewing code review requests' do
+
+    # let!(:review_url){Codereview.create(title:'Review URL', url:'https://github.com/sanjsanj/gymbuddy')}
+
+    scenario 'visit code reviews path', :js => true do
+     visit codereviews_path
+     # save_and_open_page
+     click_link 'Request review'
+     fill_in 'Title', with: 'Please review my challenge'
+     fill_in 'Url', with: 'https://github.com/sanjsanj/gymbuddy'
+     click_button 'Submit'
+
+     click_link 'https://github.com/sanjsanj/gymbuddy'
+     # find(:link, 'www.google.com').click
+     # click('www.google.com')
+     expect(current_path).to eq "/sanjsanj/gymbuddy"
+    end
+  end
+
+
+
 end
