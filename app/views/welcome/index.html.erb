@@ -14,7 +14,7 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis molestie.
     </p>
 
-    <p><div class="btn btn-primary btn-lg" href="#" role="button"><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %></div></p>
+    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: "btn btn-primary btn-lg" %>
   </div>
 
 <% end %>

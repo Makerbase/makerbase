@@ -2,6 +2,10 @@ body {
   background-color: rgb(169, 29, 42);
 }
 
+.navbar-brand {
+  size: 10%;
+  }
+
 .navbar-header .navbar-text {
   color: rgb(169, 29, 42);
   font-size: 150%;
@@ -9,4 +13,9 @@ body {
 
 .jumbotron {
   padding: 2em 5em;
+}
+
+.btn .btn-primary .btn-lg {
+  background-color: rgb(169, 29, 42);
+  color: white;
 }
