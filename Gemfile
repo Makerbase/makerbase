@@ -26,7 +26,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'test-unit'
-  gem 'vcr'
+  # gem 'vcr'
   gem 'shoulda'
   # gem 'webmock'
 end
