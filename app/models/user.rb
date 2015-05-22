@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
+  has_many :posts
+  has_many :likes, through: :posts
 
   validates_presence_of :uid#, :github_token
   validates_uniqueness_of :uid, :name
