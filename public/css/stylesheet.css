@@ -2,9 +2,9 @@ body {
   background-color: rgb(169, 29, 42);
 }
 
-.navbar-brand {
-  size: 10%;
-  }
+.glyphicon {
+  padding: 50px;
+}
 
 .navbar-header .navbar-text {
   color: rgb(169, 29, 42);

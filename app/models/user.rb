@@ -5,15 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
 
-  validates_presence_of :uid, :name#, :github_token
+  validates_presence_of :uid#, :github_token
   validates_uniqueness_of :uid, :name
 
   def self.from_omniauth(auth)
+    p auth.info
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
-      user.email = '#{user.name}@mailinator.com'
       user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.login   # uses github username
-      user.image = auth.info.avatar_url
+      user.name = auth.info.name   # uses github username
+      user.email = auth.info.email || "#{auth.info.name.gsub(" ", "")}@mailinator.com"
+      user.image = auth.info.image
     end
   end
 

@@ -1,7 +1,7 @@
 #MakerBase
 ----------
 
-travis  cover
+[![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=63-organization-auth)](https://travis-ci.org/Makerbase/makerbase)  cover
 
 heroku
 
