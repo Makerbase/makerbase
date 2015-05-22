@@ -1,8 +1,5 @@
 body {
-  background-color: rgb(169, 29, 42);
-}
-
-.glyphicon {
+  /*background-color: rgb(169, 29, 42);*/
 }
 
 .navbar-header .navbar-text {
@@ -12,9 +9,4 @@ body {
 
 .jumbotron {
   padding: 2em 5em;
-}
-
-.btn .btn-primary .btn-lg {
-  background-color: rgb(169, 29, 42);
-  color: white;
 }
