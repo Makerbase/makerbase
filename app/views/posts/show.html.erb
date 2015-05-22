@@ -1,0 +1,21 @@
+<p>Title: </p>
+<p>Tags: </p>
+<p>Link: </p>
+<p>Description </p>
+
+
+<h3>Coments for <%= @post.title %></h3>
+
+<% if @post.comments.any? %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <%= comment.comments %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No comments.</p>
+<% end %>
+
+ <%= link_to 'Leave Comment', new_post_comment_path(@post) %>

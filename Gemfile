@@ -27,5 +27,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'test-unit'
   gem 'vcr'
+  gem 'shoulda'
   # gem 'webmock'
 end
