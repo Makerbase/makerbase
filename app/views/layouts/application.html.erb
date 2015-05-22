@@ -5,15 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/paper/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-  <% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="col-md-8 col-md-offset-2">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
 
-<%= yield %>
+          <a class="navbar-brand" href="/">
+            <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+          </a>
 
+          <a class="navbar-text" href="/">
+            <span>Maker::BASE</span>
+          </a>
+
+        </div>
+            <% if user_signed_in? %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav navbar-btn navbar-right" %>
+            <% end %>
+      </div>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+
   root 'welcome#index'
   post 'posts/:post_id/ratings/like/:id' => 'ratings#like', as: :like
   post 'posts/:post_id/ratings/dislike/:id' => 'ratings#dislike', as: :dislike
@@ -69,4 +69,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get 'users/auth/github/callback', to: 'sessions#create'
+
 end

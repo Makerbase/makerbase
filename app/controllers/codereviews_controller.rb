@@ -1,16 +1,19 @@
 class CodereviewsController < ApplicationController
 
   def index
-    # if current_user
-    @codereviews = Codereview.all
-    # else
-    #   redirect_to root_path
-    # end
-    # @user = User.find(params[:id])
+    if current_user
+      @codereviews = Codereview.all
+    else
+      redirect_to root_path
+    end
   end
 
   def new
-    @codereview = Codereview.new
+    if current_user
+      @codereview = Codereview.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
