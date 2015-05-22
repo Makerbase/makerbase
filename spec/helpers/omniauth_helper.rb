@@ -5,9 +5,9 @@ module OmniauthHelper
       :provider => 'github',
       :uid => '123545',
       :login => 'Sanjay Purswani',
-        :name => 'Sanjay Purswani',
-        :github_token => '12345',
-        :credentials => { :token => "a" }
+      :name => 'Sanjay Purswani',
+      :github_token => '12345',
+      :credentials => { :token => "a" }
     })
     visit root_path
     click_link 'Sign in with Github'
