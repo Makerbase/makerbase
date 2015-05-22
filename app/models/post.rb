@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :taggings, dependent: :destroy 
   has_many :tags, through: :taggings
-  has_many :ratings, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|

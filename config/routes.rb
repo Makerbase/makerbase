@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+
+  get 'likes/destroy'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   root 'welcome#index'
-  post 'posts/:post_id/ratings/like/:id' => 'ratings#like', as: :like
-  post 'posts/:post_id/ratings/dislike/:id' => 'ratings#dislike', as: :dislike
 
-  resources :posts do
-    resources :ratings
+  resources :posts, shallow: true do
+    resources :likes
+    resources :dislikes
   end
 
   resources :codereviews
