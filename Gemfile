@@ -50,4 +50,5 @@ group :development, :test do
   gem 'spring'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'shoulda'
 end

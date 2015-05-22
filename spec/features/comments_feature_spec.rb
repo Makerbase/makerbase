@@ -1,16 +1,32 @@
 require 'rails_helper'
 
-# # feature 'comments' do
-# #   before {Post.create title: 'First Post'}
+  feature 'comments' do
 
-# #   scenario 'allow users to leave a comment on a post' do
-# #     visit '/'
-# #     click_link 'Comment First Post'
-# #     fill_in "Comments", with: "cool link"
-# #     click_button 'Add Comment'
+    include OmniauthHelper
+    include UsersHelper
 
-# #     expect(current_path).to eq '/'
-# #     expect(page).to have_content('cool link')
-# #   end
+    before(:each) do
+      oauth_sign_in
+    end
 
-# end
+    after(:each) do
+      oauth_sign_out
+    end
+
+
+    before {Post.create title: 'Ultimate Resource', link: 'www.google.com', all_tags: 'ruby, makers, beginner'}
+
+    scenario 'allow users to leave a comment on a post' do
+      visit posts_path
+       click_link 'Ultimate Resource'
+       click_link 'Leave Comment'
+       fill_in "Comments", with: "cool link"
+       click_button 'Add Comment'
+
+       expect(current_path).to eq '/posts/1'
+       expect(page).to have_content('cool link')
+    end
+
+end
+
+

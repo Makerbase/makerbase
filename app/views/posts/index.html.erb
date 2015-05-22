@@ -1,17 +1,23 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
     <article>
-      <p><%= post.title %></p>
+      <%= link_to post.title, post_path(post) %>
       <p>Likes: <%= post.likes %></p>
       <%= link_to post.link, "http://#{post.link}" %>
       <p>posted by: <%= post.author %></p>
       <p><%= post.all_tags %></p>
+      <p><%= post.comments %></p>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= button_to "Delete", post_path(post), method: :delete %>
       <%= button_to 'Like', post_ratings_path(post), method: :create %>
+     <!--  <%= link_to 'Leave Comment', new_post_comment_path(post) %> -->
     </article>
   <% end %>
 <% else %>
 No links yet
 <% end %>
 <%= link_to 'Add a link', new_post_path %>
+
+<br><br>
+
+

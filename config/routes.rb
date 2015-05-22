@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :ratings
+    resources :comments
   end
 
   resources :codereviews
