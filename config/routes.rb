@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'likes/create'
-
-  get 'likes/destroy'
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'welcome#index'
+
+  get 'tags/:tag', to: 'posts#index', as: 'tag'
 
   resources :posts, shallow: true do
     resources :likes

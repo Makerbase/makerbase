@@ -4,7 +4,11 @@ class PostsController < ApplicationController
 
   def index
     if current_user
-      @posts = Post.all
+      if params[:tag]
+        @posts = Post.tagged_with(params[:tag])
+      else
+        @posts = Post.all
+      end
     else
       redirect_to root_path
     end
