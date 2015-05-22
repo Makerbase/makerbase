@@ -27,6 +27,17 @@ require 'rails_helper'
        expect(page).to have_content('cool link')
     end
 
-end
+    scenario "allow users to delete a comment on a post" do
+      visit posts_path
+        click_link 'Ultimate Resource'
+        click_link 'Leave Comment'
+        fill_in "Comments", with: "cool link"
+        click_button 'Add Comment'
+        click_button 'Delete Comment'
+        expect(current_path).to eq "/posts/#{Post.last.id}"
+        expect(page).not_to have_content "cool link"
+      end
+
+   end
 
 

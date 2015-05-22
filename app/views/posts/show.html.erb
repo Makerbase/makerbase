@@ -11,6 +11,7 @@
     <% @post.comments.each do |comment| %>
       <li>
         <%= comment.comments %>
+        <%= button_to 'Delete Comment', comment_path(id: comment, post_id: @post.id), method: :delete  %>
       </li>
     <% end %>
   </ul>
