@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :taggings, dependent: :destroy 
   has_many :tags, through: :taggings
   has_many :ratings, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
