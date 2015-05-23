@@ -19,9 +19,10 @@ adjustment
 ####User Stories:
 -------------
 
-As a Maker who has too many logins to remember  
-So I can quickly access the site  
-I want to log in with my Github account  
+```
+As a Maker who has too many logins to remember
+So I can quickly access the site
+I want to log in with my Github account
 
 As a Maker who wants a safe environment to communicate in  
 So I can share and help members of my community  
@@ -78,3 +79,4 @@ I want to be able to upvote
 As a Maker  
 So I can see the relevant information  
 I want to be able to filter by tag  
+```
