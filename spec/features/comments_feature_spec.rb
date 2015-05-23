@@ -46,10 +46,10 @@ feature 'comments' do
     fill_in "Comments", with: "cool link"
     click_button 'Add Comment'
 
-    click_button 'Edit Comment'
+    click_link 'Edit Comment'
     fill_in 'Comments', with: 'even better link'
     click_button 'Update'
-    expect(page).to have_content 'event better link'
+    expect(page).to have_content 'even better link'
   end    
 end
 
