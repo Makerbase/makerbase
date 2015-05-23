@@ -17,7 +17,7 @@
       <p><%= post.comments %></p>
 
       <%= link_to 'Edit', edit_post_path(post) %>
-      <%= button_to "Delete", post_path(post), method: :delete %>
+      <%= link_to "Delete", post_path(post), method: :delete %>
       <%= button_to 'Like', post_likes_path(post), method: :create %>
       <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
     </article>
@@ -28,5 +28,3 @@ No links yet
 <%= link_to 'Add a link', new_post_path %>
 
 <br><br>
-
-

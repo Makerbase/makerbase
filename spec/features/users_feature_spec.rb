@@ -44,6 +44,15 @@ feature 'users' do
       expect(page).not_to have_link 'Sign in with Github'
     end
 
+    scenario 'should see link to sign out' do
+      expect(page).to have_link 'Sign out'
+    end
+
+    scenario 'can sign out' do
+      click_link 'Sign out'
+      expect(page).to have_link 'Sign in with Github'
+    end
+
     scenario 'can go to resources page' do
       click_link 'Resources'
       expect(current_path).to eq posts_path
@@ -71,7 +80,7 @@ feature 'users' do
       Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
       click_link 'Resources'
       expect(page).to have_content('www.link.com')
-      click_button 'Delete'
+      click_link 'Delete'
       expect(page).to have_content('www.link.com')
       expect(page).to have_content('Cannot delete a post you haven\'t created')
     end

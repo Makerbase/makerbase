@@ -34,23 +34,48 @@ feature 'code review' do
   end
 
   context 'user submits request for code review' do
-    scenario 'displays the request' do
+
+    before(:each) do
       request_code_review
+    end
+
+    scenario 'displays the request' do
       expect(page).to have_content 'Please review my challenge'
       expect(current_path).to eq codereviews_path
     end
 
-    scenario 'user can delete request' do
-      request_code_review
+    scenario 'user can see link to delete code review request' do
       expect(page).to have_link 'Delete'
     end
 
-    xscenario 'has URL for repository to be reviewed', :js => true do
-      visit root_path
-      click_link 'Sign in with Github'
-      request_code_review
-      click_link 'https://github.com/sanjsanj/gymbuddy'
-      expect(current_path).to eq "/sanjsanj/gymbuddy"
+    scenario 'user can delete request' do
+      click_link 'Delete'
+      expect(page).not_to have_content 'Please review my challenge'
+    end
+
+    scenario 'another user cannot see delete link' do
+      click_link 'Sign out'
+      oauth_sign_in_2
+      expect(page).not_to have_link 'Delete'
+    end
+
+    scenario 'user can see link to edit code review request' do
+      expect(page).to have_link 'Edit'
+    end
+
+    xscenario 'user can edit request' do
+      click_link 'Edit'
+
+    end
+
+    scenario 'another user cannot see edit link' do
+      click_link 'Sign out'
+      oauth_sign_in_2
+      expect(page).not_to have_link 'Delete'
+    end
+
+    scenario 'has URL for repository to be reviewed' do
+      expect(page).to have_link 'https://github.com/sanjsanj/gymbuddy'
     end
   end
 end
