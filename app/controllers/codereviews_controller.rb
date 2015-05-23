@@ -26,6 +26,33 @@ class CodereviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @codereview = Codereview.find(params[:id])
+    if current_user == @codereview.user
+      @codereview.destroy
+      flash[:notice] = 'Request deleted'
+      redirect_to codereviews_path
+    else
+      flash[:notice] = 'Cannot delete'
+      redirect_to codereviews_path
+    end
+  end
+
+  def edit
+    @codereview = Codereview.find(params[:id])
+  end
+
+  def update
+     @codereview = Codereview.find(params[:id])
+     if current_user == @codereview.user
+       @codereview.update(codereview_params)
+       redirect_to codereviews_path
+     else
+      flash[:notice] = 'Cannot edit'
+      redirect_to codereviews_path
+     end
+  end
+
   def codereview_params
     params.require(:codereview).permit(:title, :url, :user_id)
   end

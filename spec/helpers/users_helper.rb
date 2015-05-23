@@ -7,6 +7,12 @@ module UsersHelper
     click_button 'Submit'
   end
 
+  def add_comment(comments = 'cool link')
+    click_link 'Leave Comment'
+    fill_in "Comments", with: "cool link"
+    click_button 'Add Comment'
+  end
+
   def request_code_review
     visit codereviews_path
     click_link 'Request review'

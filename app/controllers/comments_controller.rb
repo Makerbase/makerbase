@@ -27,6 +27,13 @@ class CommentsController < ApplicationController
   def edit
     # @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    if current_user.id == @comment.user_id
+      @comment.update(comment_params)
+      redirect_to post_path(@comment.post_id)
+    else
+      flash[:notice] = 'Cannot edit a comment you haven\'t created'
+      redirect_to post_path(@comment.post_id)
+    end
     # @comment.update(new_params)
     # redirect_to edit_comment_path(@comment)
   end
@@ -35,21 +42,9 @@ class CommentsController < ApplicationController
     params.permit(:id, :post_id)
   end
 
-  # def update
-  #   @comment = Comment.find(params[:id])
-  #   @comment.update(comment_params)
-  #   redirect_to post_path(@comment.post_id)
-  # end
-
   def update
     @comment = Comment.find(params[:id])
-    if current_user.id == @comment.user_id
-      @comment.update(comment_params)
-      redirect_to post_path(@comment.post_id)
-    else
-      flash[:notice] = 'Cannot edit a comment you haven\'t created'
-      redirect_to post_path(@comment.post_id)
-    end
+    @comment.update(comment_params)
+    redirect_to post_path(@comment.post_id)
   end
-
 end

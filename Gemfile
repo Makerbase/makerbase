@@ -9,10 +9,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'coveralls', require: false
 gem 'devise'
 gem 'omniauth-github'
 gem 'octokit'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # gem 'launchy'
@@ -25,8 +27,5 @@ group :development, :test do
   gem 'spring'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
-  gem 'test-unit'
-  gem 'vcr'
   gem 'shoulda'
-  # gem 'webmock'
 end

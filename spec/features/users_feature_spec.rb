@@ -44,6 +44,15 @@ feature 'users' do
       expect(page).not_to have_link 'Sign in with Github'
     end
 
+    scenario 'should see link to sign out' do
+      expect(page).to have_link 'Sign out'
+    end
+
+    scenario 'can sign out' do
+      click_link 'Sign out'
+      expect(page).to have_link 'Sign in with Github'
+    end
+
     scenario 'can go to resources page' do
       click_link 'Resources'
       expect(current_path).to eq posts_path
@@ -71,17 +80,21 @@ feature 'users' do
       Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
       click_link 'Resources'
       expect(page).to have_content('www.link.com')
-      click_button 'Delete'
+      click_link 'Delete'
       expect(page).to have_content('www.link.com')
       expect(page).to have_content('Cannot delete a post you haven\'t created')
     end
 
     scenario 'can only edit comments that he created' do
-      post = Post.create(title: 'Ruby', link: 'www.link.com', all_tags: 'makers, code')
-      Comment.create(comments: 'cool link', post_id: post.id)
       click_link 'Resources'
-      click_link 'Ruby'
-      expect(page).to have_content('www.link.com')
+      add_post
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      oauth_sign_out
+      oauth_sign_in_2
+      click_link 'Resources'
+      click_link 'Ultimate Resource'
       click_link 'Edit Comment'
       expect(page).to have_content('Cannot edit a comment you haven\'t created')
     end

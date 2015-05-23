@@ -35,27 +35,37 @@ ActiveRecord::Schema.define(version: 20150523162233) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "dislikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dislikes", ["post_id"], name: "index_dislikes_on_post_id", using: :btree
+  add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["post_id"], name: "index_likes_on_post_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
-    t.integer  "likes",      default: 0, null: false
-    t.integer  "dislikes",   default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "tagging_id"
     t.integer  "user_id"
     t.string   "author"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "ratings", ["post_id"], name: "index_ratings_on_post_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "post_id"
