@@ -13,6 +13,20 @@ module OmniauthHelper
     click_link 'Sign in with Github'
   end
 
+  def oauth_sign_in_2
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+      :provider => 'github',
+      :uid => '223545',
+      :login => 'Bob Bobson',
+      :name => 'Bob Bobson',
+      :github_token => '22345',
+      :credentials => { :token => "b" }
+    })
+    visit root_path
+    click_link 'Sign in with Github'
+  end
+
   def oauth_sign_out
     OmniAuth.config.mock_auth[:github] = nil
   end

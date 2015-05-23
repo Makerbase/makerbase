@@ -14,6 +14,8 @@ gem 'devise'
 gem 'omniauth-github'
 gem 'octokit'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   # gem 'launchy'
   gem 'rspec-rails'
@@ -25,8 +27,5 @@ group :development, :test do
   gem 'spring'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
-  gem 'test-unit'
-  # gem 'vcr'
   gem 'shoulda'
-  # gem 'webmock'
 end
