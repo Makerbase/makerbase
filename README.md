@@ -4,9 +4,9 @@ As a Maker
 * So I can quickly access the site
 * I want to log in with my Github account
 
-- As a Maker who has found a useful resource
- - So I can share that resource
-I want to add a link to resources
+As a Maker who has found a useful resource
+* So I can share that resource
+* I want to add a link to resources
 
 As a Maker who is looking for information
 So I can make the best use of my time
