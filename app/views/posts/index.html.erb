@@ -7,18 +7,17 @@
     <article>
       <p><%= link_to post.title, post_path(post) %></p>
       <p><%= link_to post.link, "http://#{post.link}" %></p>
-      <p>posted by: <%= post.author %></p>
+      <span>posted by: <%= post.user.name if post.user %></span>
       <p>Likes: <%= post.likes.count %></p>
       <p>Dislikes: <%= post.dislikes.count %></p>
       <p><%= raw tag_links(post.all_tags) %></p>
 
       <% if post.user == current_user %>
         <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post_path(post), method: :delete %>
+        <%= link_to "Delete", post_path(post), method: :delete %>
       <% end %>
 
       <p><%= post.all_tags %></p>
-      <p><%= post.comments %></p>
 
       <%= button_to 'Like', post_likes_path(post), method: :create %>
       <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
