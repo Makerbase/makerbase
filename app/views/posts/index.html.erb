@@ -4,9 +4,11 @@
       <p><%= post.title %></p>
       <p>Likes: <%= post.likes.count %></p>
       <p>Dislikes: <%= post.dislikes.count %></p>
+      <%= link_to post.title, post_path(post) %>
       <%= link_to post.link, "http://#{post.link}" %>
       <p>posted by: <%= post.author %></p>
       <p><%= post.all_tags %></p>
+      <p><%= post.comments %></p>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= button_to "Delete", post_path(post), method: :delete %>
       <%= button_to 'Like', post_likes_path(post), method: :create %>
@@ -17,3 +19,7 @@
 No links yet
 <% end %>
 <%= link_to 'Add a link', new_post_path %>
+
+<br><br>
+
+

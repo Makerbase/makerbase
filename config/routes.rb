@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :posts, shallow: true do
     resources :likes
     resources :dislikes
+    resources :comments
   end
 
   resources :codereviews

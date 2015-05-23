@@ -1,0 +1,24 @@
+<p>Title: </p>
+<p>Tags: </p>
+<p>Link: </p>
+<p>Description </p>
+
+
+<h3>Comments : <%= @post.title %></h3>
+
+<% if @post.comments.any? %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <%= comment.comments %>
+        <%= link_to 'Edit Comment', edit_comment_path(comment) %>
+        <%= button_to 'Delete Comment', comment_path(id: comment, post_id: @post.id), method: :delete  %>
+
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No comments.</p>
+<% end %>
+
+ <%= link_to 'Leave Comment', new_post_comment_path(@post) %>
