@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :taggings, dependent: :destroy 
   has_many :tags, through: :taggings
-  has_many :ratings, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   def all_tags=(names)
@@ -13,5 +14,9 @@ class Post < ActiveRecord::Base
 
   def all_tags
     self.tags.map(&:name).join(", ")
+  end
+
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).posts
   end
 end
