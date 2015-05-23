@@ -57,23 +57,43 @@ feature 'users' do
       expect(page).to have_content('ruby, makers, beginner')
     end
 
-    scenario 'can only edit posts that he created' do
+
+    scenario 'cannot see delete link unless he created post' do
       Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
       click_link 'Resources'
       expect(page).to have_content('www.link.com')
+      expect(page).not_to have_content('Delete')
+      add_post
+      expect(page).to have_content('Ultimate Resource')
+      expect(page).to have_link('Delete')
+    end
+
+    scenario 'cannot see edit link unless he created post' do
+      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
+      click_link 'Resources'
+      expect(page).to have_content('www.link.com')
+      expect(page).not_to have_content('Edit')
+      add_post
+      expect(page).to have_content('Ultimate Resource')
+      expect(page).to have_link('Edit')
+    end
+
+    scenario 'can delete post he created' do
+      click_link 'Resources'
+      add_post
+      expect(page).to have_content('Ultimate Resource')
+      click_link('Delete')     
+      expect(page).not_to have_content('Ultimate Resource')
+    end
+
+    scenario 'can edit post he created' do
+      click_link 'Resources'
+      add_post
+      expect(page).to have_content('Ultimate Resource')
       click_link 'Edit'
       fill_in 'Title', with: 'Title has been changed'
       click_button 'Update'
-      expect(page).to have_content('Cannot edit a post you haven\'t created')
-    end
-
-    scenario 'can only delete post that he created' do
-      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
-      click_link 'Resources'
-      expect(page).to have_content('www.link.com')
-      click_button 'Delete'
-      expect(page).to have_content('www.link.com')
-      expect(page).to have_content('Cannot delete a post you haven\'t created')
+      expect(page).to have_content('Title has been changed')
     end
   end
 end
