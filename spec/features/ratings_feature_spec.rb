@@ -17,27 +17,27 @@ feature 'ratings system (likes and dislikes)' do
 
   context 'user rates resource' do
     scenario 'likes a resource, which updates like count by one' do
-      click_button 'Like'
-      expect(page).to have_content('Likes: 1')
+      click_link 'Like'
+      expect(page).to have_content('1')
     end
 
     scenario 'user dislikes a resource, which updates dislike count by one' do
-      click_button 'Dislike'
-      expect(page).to have_content('Dislikes: 1')
+      click_link 'Dislike'
+      expect(page).to have_content('1')
     end
 
     scenario 'user dislikes a resource, which he previously liked' do
-      click_button 'Like'
+      click_link 'Like'
       expect(page).to have_content('Likes: 1')
-      click_button 'Dislike'
+      click_link 'Dislike'
       expect(page).to have_content('Likes: 0')
       expect(page).to have_content('Dislikes: 1')
     end
 
     scenario 'user likes a resource, which he previously disliked' do
-      click_button 'Dislike'
+      click_link 'Dislike'
       expect(page).to have_content('Dislikes: 1')
-      click_button 'Like'
+      click_link 'Like'
       expect(page).to have_content('Likes: 1')
       expect(page).to have_content('Dislikes: 0')
     end

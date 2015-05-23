@@ -1,30 +1,38 @@
 <% if @posts.any? %>
   <% Tag.all.each do |tag| %>
-    <span><button><%= tag_link(tag) %></button></span>
+    <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
   <% end %>
-
   <% @posts.each do |post| %>
     <article>
-      <p><%= post.title %></p>
-      <p>Likes: <%= post.likes.count %></p>
-      <p>Dislikes: <%= post.dislikes.count %></p>
-      <%= link_to post.title, post_path(post) %>
-      <%= link_to post.link, "http://#{post.link}" %>
-      <p>posted by: <%= post.author %></p>
-      <p><%= raw tag_links(post.all_tags) %></p>
 
-      <p><%= post.all_tags %></p>
-      <p><%= post.comments %></p>
+      <div class="panel panel-default">
+        <p class="post-title"><%= link_to post.title, post_path(post) %></p>        
+        <p class="glyphicon glyphicon-hand-up" ><%= post.likes.count %></p>
+        <p class="glyphicon glyphicon-hand-down" ><%= post.dislikes.count %></p>
+      
+        <div>
+          <p>posted by: <%= post.author %></p>
+          <p><%= raw tag_links(post.all_tags) %></p>
+        </div>
+        
+        <div>
+          <p>url: <%= link_to post.link, "http://#{post.link}" %></p>
+          <p>tags: <%= post.all_tags %></p>
+        </div>
 
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to "Delete", post_path(post), method: :delete %>
-      <%= button_to 'Like', post_likes_path(post), method: :create %>
-      <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
+        <div class="buttons-posts">
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to "Delete", post_path(post), method: :delete %>
+          <%= link_to 'Like', post_likes_path(post), method: :create %>
+          <%= link_to 'Dislike', post_dislikes_path(post), method: :create %>
+        </div>
+      </div>
+
     </article>
   <% end %>
 <% else %>
 No links yet
 <% end %>
-<%= link_to 'Add a link', new_post_path %>
+<button class="btn btn-default btn-large"><%= link_to 'Add a link', new_post_path %></button>
 
-<br><br>
+
