@@ -49,9 +49,9 @@ As a Maker
 * I want to see the best repositories of completed challenges
 
 As a Maker
-So I can rate the best forum comments
-I want to be able to upvote
+* So I can rate the best forum comments
+* I want to be able to upvote
 
 As a Maker
-So I can see best comments
-I want to be able to filter by tag
+* So I can see best comments
+* I want to be able to filter by tag
