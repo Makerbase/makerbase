@@ -1,3 +1,5 @@
+<a href="/codereviews/new">Request review</a>
+
 <% if @codereviews.any? %>
   <% @codereviews.each do |codereview| %>
     <div class="panel panel-default">
@@ -11,5 +13,3 @@
 <% else %>
   <h1>No reviews yet</h1>
 <% end %>
-
-<a href="/codereviews/new">Request review</a>
