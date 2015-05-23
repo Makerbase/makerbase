@@ -10,3 +10,8 @@ body {
 .jumbotron {
   padding: 2em 5em;
 }
+
+.img-circle {
+  max-width: 50px;
+  margin-left: 50px;
+}
