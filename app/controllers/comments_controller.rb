@@ -35,22 +35,21 @@ class CommentsController < ApplicationController
     params.permit(:id, :post_id)
   end
 
+  # def update
+  #   @comment = Comment.find(params[:id])
+  #   @comment.update(comment_params)
+  #   redirect_to post_path(@comment.post_id)
+  # end
+
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
-    redirect_to post_path(@comment.post_id)
+    if current_user.id == @comment.user_id
+      @comment.update(comment_params)
+      redirect_to post_path(@comment.post_id)
+    else
+      flash[:notice] = 'Cannot edit a comment you haven\'t created'
+      redirect_to post_path(@comment.post_id)
+    end
   end
-
-  # def destroy
-  #   @post = Post.find(params[:id])
-  #   if @post.comments.create(comment_params)
-  #     @comment.destroy
-  #     flash[:notice] = 'Comment deleted'
-  #     redirect_to post_path(@post)
-  #   else
-  #     flash[:notice] = 'Cannot delete a comment you haven\'t created'
-  #     redirect_to post_path(@post)
-  #   end
-  # end
 
 end

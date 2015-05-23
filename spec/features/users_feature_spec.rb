@@ -75,5 +75,15 @@ feature 'users' do
       expect(page).to have_content('www.link.com')
       expect(page).to have_content('Cannot delete a post you haven\'t created')
     end
+
+    scenario 'can only edit comments that he created' do
+      post = Post.create(title: 'Ruby', link: 'www.link.com', all_tags: 'makers, code')
+      Comment.create(comments: 'cool link', post_id: post.id)
+      click_link 'Resources'
+      click_link 'Ruby'
+      expect(page).to have_content('www.link.com')
+      click_link 'Edit Comment'
+      expect(page).to have_content('Cannot edit a comment you haven\'t created')
+    end
   end
 end
