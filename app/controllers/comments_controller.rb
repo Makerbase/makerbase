@@ -16,8 +16,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(params[:post_id])
+    if current_user.id == @comment.user_id
+      @comment.destroy
+      redirect_to post_path(params[:post_id])
+    else
+      flash[:notice] = 'Cannot delete a comment you haven\'t created'
+      redirect_to post_path(params[:post_id])
+    end
   end
 
   def show
@@ -27,6 +32,13 @@ class CommentsController < ApplicationController
   def edit
     # @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    if current_user.id == @comment.user_id
+      @comment.update(comment_params)
+      redirect_to post_path(@comment.post_id)
+    else
+      flash[:notice] = 'Cannot edit a comment you haven\'t created'
+      redirect_to post_path(@comment.post_id)
+    end
     # @comment.update(new_params)
     # redirect_to edit_comment_path(@comment)
   end
@@ -40,17 +52,4 @@ class CommentsController < ApplicationController
     @comment.update(comment_params)
     redirect_to post_path(@comment.post_id)
   end
-
-  # def destroy
-  #   @post = Post.find(params[:id])
-  #   if @post.comments.create(comment_params)
-  #     @comment.destroy
-  #     flash[:notice] = 'Comment deleted'
-  #     redirect_to post_path(@post)
-  #   else
-  #     flash[:notice] = 'Cannot delete a comment you haven\'t created'
-  #     redirect_to post_path(@post)
-  #   end
-  # end
-
 end

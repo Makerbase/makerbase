@@ -18,6 +18,20 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.nickname   # uses github username
       user.email = auth.email || "#{auth.name.gsub(" ", "")}@mailinator.com" if auth.nickname
+    # puts '---' * 20
+    # p auth
+    # puts '---' * 20
+    # p auth.info
+    # puts '---' * 20
+    # p auth.name
+    # puts '---' * 20
+    # p auth.info.nickname
+    # puts '---' * 20
+    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+      user.password = Devise.friendly_token[0,20]
+      # byebug
+      user.name = auth.info.nickname   # uses github username
+      user.email = auth.info.email || "#{auth.info.nickname}@mailinator.com"# if auth.name
       user.image = auth.image
     end
   end
