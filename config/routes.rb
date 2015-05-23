@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :posts do
+  resources :posts, shallow: true do
     resources :ratings
     resources :comments
   end
