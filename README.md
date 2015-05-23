@@ -1,6 +1,6 @@
 #MakerBase v.1.0
 
-As a Maker
+** As a Maker **
 * So I can quickly access the site
 * I want to log in with my Github account
 
