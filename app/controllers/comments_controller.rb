@@ -16,8 +16,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(params[:post_id])
+    if current_user.id == @comment.user_id
+      @comment.destroy
+      redirect_to post_path(params[:post_id])
+    else
+      flash[:notice] = 'Cannot delete a comment you haven\'t created'
+      redirect_to post_path(params[:post_id])
+    end
   end
 
   def show
