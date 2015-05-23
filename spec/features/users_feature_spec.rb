@@ -27,7 +27,7 @@ feature 'users' do
 
     scenario 'sign in fails if not authenticated' do
       visit root_path
-      expect{ click_link 'Sign in with Github' }.to raise_error "Validation failed: Email can't be blank"
+      expect{ click_link 'Sign in with Github' }.to raise_error "Validation failed: Email is invalid"
     end
   end
 
@@ -71,43 +71,32 @@ feature 'users' do
       expect(page).to have_content('ruby, makers, beginner')
     end
 
-
-    scenario 'cannot see delete link unless he created post' do
-      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
+    scenario 'can only edit comments that he created' do
       click_link 'Resources'
-      expect(page).to have_content('www.link.com')
-      expect(page).not_to have_content('Delete')
       add_post
-      expect(page).to have_content('Ultimate Resource')
-      expect(page).to have_link('Delete')
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      # oauth_sign_out
+      oauth_sign_in_2
+      click_link 'Resources'
+      click_link 'Ultimate Resource'
+      click_link 'Edit Comment'
+      expect(page).to have_content('Cannot edit a comment you haven\'t created')
     end
 
-    scenario 'cannot see edit link unless he created post' do
-      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
-      click_link 'Resources'
-      expect(page).to have_content('www.link.com')
-      expect(page).not_to have_content('Edit')
-      add_post
-      expect(page).to have_content('Ultimate Resource')
-      expect(page).to have_link('Edit')
-    end
-
-    scenario 'can delete post he created' do
+    scenario 'can only delete comments that he created' do
       click_link 'Resources'
       add_post
-      expect(page).to have_content('Ultimate Resource')
-      click_link('Delete')     
-      expect(page).not_to have_content('Ultimate Resource')
-    end
-
-    scenario 'can edit post he created' do
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      # oauth_sign_out
+      oauth_sign_in_2
       click_link 'Resources'
-      add_post
-      expect(page).to have_content('Ultimate Resource')
-      click_link 'Edit'
-      fill_in 'Title', with: 'Title has been changed'
-      click_button 'Update'
-      expect(page).to have_content('Title has been changed')
+      click_link 'Ultimate Resource'
+      click_button 'Delete Comment'
+      expect(page).to have_content('Cannot delete a comment you haven\'t created')
     end
   end
 end
