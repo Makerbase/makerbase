@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)
 
-heroku
+[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
 
 SS
 
@@ -24,9 +24,9 @@ As a Maker who has too many logins to remember
 So I can quickly access the site
 I want to log in with my Github account
 
-As a Maker who wants a safe environment to communicate in  
-So I can share and help members of my community  
-I want the site to require membership of the Makers Academy organization  
+As a Maker who wants a safe environment to communicate in
+So I can share and help members of my community
+I want the site to require membership of the Makers Academy organization
 
 As a Maker who has found a useful resource  
 So I can share that resource  
@@ -67,10 +67,6 @@ I want to be able to sort resources
 As a Maker  
 So I can get better at coding  
 I want to get more feedback on my code  
-
-<!-- As a Maker
-So I can learn best practice
-I want to see the best repositories of completed challenges -->
 
 As a Maker  
 So I can rate the best forum comments  
