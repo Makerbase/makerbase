@@ -9,6 +9,10 @@ require 'helpers/users_helper'
 
 require 'database_cleaner'
 
+# require 'rubygems'
+# require 'test/unit'
+# require 'vcr'
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -28,3 +32,8 @@ RSpec.configure do |config|
     end
   end
 end
+# 
+# VCR.configure do |config|
+#   config.cassette_library_dir = "fixtures/vcr_cassettes"
+#   config.hook_into :webmock # or :fakeweb
+# end
