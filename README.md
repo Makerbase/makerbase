@@ -1,11 +1,11 @@
 #MakerBase v.1.0
 
 As a Maker
-So I can quickly access the site
-I want to log in with my Github account
+* So I can quickly access the site
+* I want to log in with my Github account
 
-As a Maker who has found a useful resource
-So I can share that resource
+- As a Maker who has found a useful resource
+ - So I can share that resource
 I want to add a link to resources
 
 As a Maker who is looking for information
