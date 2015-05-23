@@ -1,16 +1,25 @@
 <% if @posts.any? %>
+  <% Tag.all.each do |tag| %>
+    <span><button><%= tag_link(tag) %></button></span>
+  <% end %>
+
   <% @posts.each do |post| %>
     <article>
+      <p><%= post.title %></p>
+      <p>Likes: <%= post.likes.count %></p>
+      <p>Dislikes: <%= post.dislikes.count %></p>
       <%= link_to post.title, post_path(post) %>
-      <p>Likes: <%= post.likes %></p>
       <%= link_to post.link, "http://#{post.link}" %>
       <p>posted by: <%= post.author %></p>
+      <p><%= raw tag_links(post.all_tags) %></p>
+
       <p><%= post.all_tags %></p>
       <p><%= post.comments %></p>
+
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= button_to "Delete", post_path(post), method: :delete %>
-      <%= button_to 'Like', post_ratings_path(post), method: :create %>
-     <!--  <%= link_to 'Leave Comment', new_post_comment_path(post) %> -->
+      <%= button_to 'Like', post_likes_path(post), method: :create %>
+      <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
     </article>
   <% end %>
 <% else %>

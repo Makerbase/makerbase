@@ -4,3 +4,5 @@ we have temporarily disabled: index page redirecting to landing page when not si
   - we x'd line 10 of posts feature spec
 
 at the moment we are displaying the email of the creator of a post, not the username. Need this from Git
+
+we had to have (maybe) non-restful links for liking and disliking posts.
