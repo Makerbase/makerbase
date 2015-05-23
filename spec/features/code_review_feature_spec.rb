@@ -40,7 +40,9 @@ feature 'code review' do
       expect(current_path).to eq codereviews_path
     end
 
-    scenario 'has URL for repository to be reviewed', :js => true do
+    xscenario 'has URL for repository to be reviewed', :js => true do
+      visit root_path
+      click_link 'Sign in with Github'
       request_code_review
       click_link 'https://github.com/sanjsanj/gymbuddy'
       expect(current_path).to eq "/sanjsanj/gymbuddy"
