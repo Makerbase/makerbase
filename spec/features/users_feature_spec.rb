@@ -21,8 +21,13 @@ feature 'users' do
     end
 
     scenario 'should not be able to delete resources' do
-      visit '/posts/new'
+      visit new_post_path
       expect(current_path).to eq '/users/sign_in'
+    end
+
+    scenario 'sign in fails if not authenticated' do
+      visit root_path
+      expect{ click_link 'Sign in with Github' }.to raise_error "Validation failed: Email can't be blank"
     end
   end
 
