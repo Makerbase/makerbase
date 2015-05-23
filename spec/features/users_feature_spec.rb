@@ -123,5 +123,19 @@ feature 'users' do
       click_link 'Edit Comment'
       expect(page).to have_content('Cannot edit a comment you haven\'t created')
     end
+
+    scenario 'can only delete comments that he created' do
+      click_link 'Resources'
+      add_post
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      oauth_sign_out
+      oauth_sign_in_2
+      click_link 'Resources'
+      click_link 'Ultimate Resource'
+      click_button 'Delete Comment'
+      expect(page).to have_content('Cannot delete a comment you haven\'t created')
+    end
   end
 end
