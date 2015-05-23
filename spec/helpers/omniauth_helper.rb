@@ -7,7 +7,11 @@ module OmniauthHelper
       :login => 'Sanjay Purswani',
       :name => 'Sanjay Purswani',
       :github_token => '12345',
-      :credentials => { :token => "a" }
+      :credentials => { :token => "a" },
+      :info => {
+        :nickname => 'sanjsanj',
+        :email => 'sanj@sanj.com'
+      }
     })
     visit root_path
     click_link 'Sign in with Github'
@@ -21,7 +25,11 @@ module OmniauthHelper
       :login => 'Bob Bobson',
       :name => 'Bob Bobson',
       :github_token => '22345',
-      :credentials => { :token => "b" }
+      :credentials => { :token => "b" },
+      :info => {
+        :nickname => 'bob',
+        :email => 'bob@sanj.com'
+      }
     })
     visit root_path
     click_link 'Sign in with Github'
