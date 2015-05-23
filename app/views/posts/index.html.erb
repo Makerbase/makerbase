@@ -7,7 +7,7 @@
     <article>
       <p><%= link_to post.title, post_path(post) %></p>
       <p><%= link_to post.link, "http://#{post.link}" %></p>
-      <p>posted by: <%= post.author %></p>
+      <span>posted by: <%= post.user.name %></span>
       <p>Likes: <%= post.likes.count %></p>
       <p>Dislikes: <%= post.dislikes.count %></p>
       <p><%= raw tag_links(post.all_tags) %></p>
