@@ -18,7 +18,6 @@
       <% end %>
 
       <p><%= post.all_tags %></p>
-      <p><%= post.comments %></p>
 
       <%= button_to 'Like', post_likes_path(post), method: :create %>
       <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
