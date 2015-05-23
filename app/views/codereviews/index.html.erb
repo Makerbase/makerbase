@@ -7,6 +7,9 @@
         <p><%= codereview.user.name if codereview.user %><img src="<%= codereview.user.image if codereview.user %>" class="img-circle"></p>
         <p><%= codereview.title %></p>
         <p><%= link_to codereview.url, url_for(codereview.url) %></p>
+        <% if codereview.user == current_user %>
+          <%= link_to "Delete", codereview_path(codereview), method: :delete %>
+        <% end %>
       </div>
     </div>
   <% end %>

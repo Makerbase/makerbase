@@ -40,6 +40,11 @@ feature 'code review' do
       expect(current_path).to eq codereviews_path
     end
 
+    scenario 'user can delete request' do
+      request_code_review
+      expect(page).to have_link 'Delete'
+    end
+
     xscenario 'has URL for repository to be reviewed', :js => true do
       visit root_path
       click_link 'Sign in with Github'
