@@ -1,0 +1,11 @@
+<% if @post.comments.any? %>
+  <%= div_for comment do %>
+  <ul>
+    <%= comment.comments %>
+    <%= link_to 'Edit Comment', edit_comment_path(comment) %>
+    <%= button_to 'Delete Comment', comment_path(id: comment, post_id: @post.id), method: :delete  %>
+  <% end %>
+  </ul>
+<% else %>
+  <p>No comments.</p>
+<% end %>
