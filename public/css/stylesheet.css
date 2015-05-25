@@ -15,3 +15,17 @@ body {
   max-width: 50px;
   margin-left: 50px;
 }
+
+.post-title {
+  color: black;
+  font-size: x-large;
+  margin: 10px 0px 10px 0px;
+  text-decoration: underline;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.btn {
+  margin: 0px 2px 2px 2px;
+}

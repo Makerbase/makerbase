@@ -1,31 +1,40 @@
 <% if @posts.any? %>
   <% Tag.all.each do |tag| %>
-    <span><button><%= tag_link(tag) %></button></span>
+    <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
   <% end %>
-
   <% @posts.each do |post| %>
     <article>
-      <p><%= link_to post.title, post_path(post) %></p>
-      <p><%= link_to post.link, "http://#{post.link}" %></p>
-      <span>posted by: <%= post.user.name if post.user %></span>
-      <p>Likes: <%= post.likes.count %></p>
-      <p>Dislikes: <%= post.dislikes.count %></p>
-      <p><%= raw tag_links(post.all_tags) %></p>
 
-      <% if post.user == current_user %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to "Delete", post_path(post), method: :delete %>
-      <% end %>
+      <div class="panel panel-default">
+        <p class="post-title"><%= link_to post.title, post_path(post) %></p>
 
-      <p><%= post.all_tags %></p>
+        <div>
+          <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
+          <p><%= raw tag_links(post.all_tags) %></p>
+        </div>
 
-      <%= button_to 'Like', post_likes_path(post), method: :create %>
-      <%= button_to 'Dislike', post_dislikes_path(post), method: :create %>
+        <div>
+          <p>url: <%= link_to post.link, "http://#{post.link}" %></p>
+          <p>tags: <%= post.all_tags %></p>
+        </div>
+
+        <div class="buttons-posts">
+          <%= link_to 'Like', post_likes_path(post), method: :post %>
+          <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
+
+          <% if post.user == current_user %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to "Delete", post_path(post), method: :delete %>
+          <% end %>
+        </div>
+
+        <p class="glyphicon glyphicon-hand-up" >Likes: <%= post.likes.count %></p>
+        <p class="glyphicon glyphicon-hand-down" >Dislikes: <%= post.dislikes.count %></p>
+      </div>
+
     </article>
   <% end %>
 <% else %>
 No links yet
 <% end %>
-<%= link_to 'Add a link', new_post_path %>
-
-<br><br>
+<button class="btn btn-default btn-large"><%= link_to 'Add a link', new_post_path %></button>

@@ -25,6 +25,7 @@
         </div>
             <% if user_signed_in? %>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn navbar-right" %>
+              <img src="<%= current_user.image if current_user %>" class="img-circle">
             <% end %>
       </div>
     </nav>
