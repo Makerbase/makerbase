@@ -21,8 +21,13 @@ feature 'users' do
     end
 
     scenario 'should not be able to delete resources' do
-      visit '/posts/new'
+      visit new_post_path
       expect(current_path).to eq '/users/sign_in'
+    end
+
+    scenario 'sign in fails if not authenticated' do
+      visit root_path
+      expect{ click_link 'Sign in with Github' }.to raise_error "Validation failed: Email is invalid"
     end
   end
 
@@ -66,23 +71,32 @@ feature 'users' do
       expect(page).to have_content('ruby, makers, beginner')
     end
 
-    scenario 'can only edit posts that he created' do
-      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
+    scenario 'can only edit comments that he created' do
       click_link 'Resources'
-      expect(page).to have_content('www.link.com')
-      click_link 'Edit'
-      fill_in 'Title', with: 'Title has been changed'
-      click_button 'Update'
-      expect(page).to have_content('Cannot edit a post you haven\'t created')
+      add_post
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      # oauth_sign_out
+      oauth_sign_in_2
+      click_link 'Resources'
+      click_link 'Ultimate Resource'
+      click_link 'Edit Comment'
+      expect(page).to have_content('Cannot edit a comment you haven\'t created')
     end
 
-    scenario 'can only delete post that he created' do
-      Post.create(title: 'resource', link: 'www.link.com', all_tags: 'makers, code')
+    scenario 'can only delete comments that he created' do
       click_link 'Resources'
-      expect(page).to have_content('www.link.com')
-      click_link 'Delete'
-      expect(page).to have_content('www.link.com')
-      expect(page).to have_content('Cannot delete a post you haven\'t created')
+      add_post
+      click_link 'Ultimate Resource'
+      add_comment
+      click_link 'Sign out'
+      # oauth_sign_out
+      oauth_sign_in_2
+      click_link 'Resources'
+      click_link 'Ultimate Resource'
+      click_button 'Delete Comment'
+      expect(page).to have_content('Cannot delete a comment you haven\'t created')
     end
   end
 end
