@@ -27,7 +27,7 @@ feature 'users' do
 
     scenario 'sign in fails if not authenticated' do
       visit root_path
-      expect{ click_link 'Sign in with Github' }.to raise_error "Validation failed: Email is invalid"
+      expect{ click_link 'Sign in with Github' }.to raise_error
     end
   end
 
