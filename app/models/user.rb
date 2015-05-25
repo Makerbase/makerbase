@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.nickname   # uses github username
       user.email = auth.info.email.length > 0 ? auth.info.email : "#{auth.info.nickname}@mailinator.com"
-      user.image = auth.image
+      user.image = auth.image || auth.info.image
     end
   end
 
