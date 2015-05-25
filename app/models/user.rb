@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :uid, :name
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.password = Devise.friendly_token[0,20]
       # byebug
       user.name = auth.info.nickname   # uses github username
