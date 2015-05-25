@@ -11,7 +11,7 @@
         <p class="glyphicon glyphicon-hand-down" >Dislikes: <%= post.dislikes.count %></p>
 
         <div>
-          <p>posted by: <%= post.user.name if post.user %></p>
+          <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
           <p><%= raw tag_links(post.all_tags) %></p>
         </div>
 
