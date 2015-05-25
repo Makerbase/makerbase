@@ -7,8 +7,6 @@
 
       <div class="panel panel-default">
         <p class="post-title"><%= link_to post.title, post_path(post) %></p>
-        <p class="glyphicon glyphicon-hand-up" >Likes: <%= post.likes.count %></p>
-        <p class="glyphicon glyphicon-hand-down" >Dislikes: <%= post.dislikes.count %></p>
 
         <div>
           <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
@@ -21,13 +19,17 @@
         </div>
 
         <div class="buttons-posts">
+          <%= link_to 'Like', post_likes_path(post), method: :post %>
+          <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
+
           <% if post.user == current_user %>
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to "Delete", post_path(post), method: :delete %>
           <% end %>
-          <%= link_to 'Like', post_likes_path(post), method: :post %>
-          <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
         </div>
+
+        <p class="glyphicon glyphicon-hand-up" >Likes: <%= post.likes.count %></p>
+        <p class="glyphicon glyphicon-hand-down" >Dislikes: <%= post.dislikes.count %></p>
       </div>
 
     </article>
