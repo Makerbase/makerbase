@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    load_post
     if current_user.id == @post.user_id
       @post.destroy
       flash[:notice] = 'Post deleted'
@@ -46,15 +46,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    load_post
   end
 
   def edit
-    @post = Post.find(params[:id])
+    load_post
   end
 
   def update
-     @post = Post.find(params[:id])
+     load_post
      if current_user.id == @post.user_id
        @post.update(new_params)
        redirect_to posts_path
@@ -68,5 +68,9 @@ class PostsController < ApplicationController
 
   def new_params
     params.require(:post).permit(:title, :link, :all_tags)
+  end
+
+  def load_post
+    @post = Post.find(params[:id])
   end
 end
