@@ -8,40 +8,41 @@
   <% end %>
   <% @posts.each do |post| %>
 
-      <div class="panel panel-default">
+      <div class="">
+        <div class="posts-row">
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 likes-dislikes">
-          <p>
-            <%= link_to 'Like', post_likes_path(post), method: :post %>
-          </p>
-          <p class="glyphicon glyphicon-thumbs-up"> <%= post.likes.count %></p><br/>
-          <p class="glyphicon glyphicon-thumbs-down"> <%= post.dislikes.count %></p>
-          <p>
-            <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
-          </p>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 likes-dislikes">
+            <p>
+              <%= link_to 'Like', post_likes_path(post), method: :post %>
+            </p>
+            <p class="likes-count"><%= post.likes.count %></p>
+            <p class="dislikes-count"><%= post.dislikes.count %></p>
+            <p>
+              <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
+            </p>
+          </div>
+
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 posts-content">
+            <div>
+              <p><div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "http://#{post.link}" %></p>
+              <p>tags: <%= post.all_tags %></p>
+            </div>
+
+            <p class="post-title"><%= link_to post.title, post_path(post) %></p>
+
+            <div class="posted-by">
+              posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle">
+            </div>
+
+            <div class="">
+              <% if post.user == current_user %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to "Delete", post_path(post), method: :delete %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
-
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 posts-content">
-          <p class="post-title"><%= link_to post.title, post_path(post) %></p>
-
-          <div>
-            <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
-            <!-- <p><%= raw tag_links(post.all_tags) %></p> -->
-          </div>
-
-          <div>
-            <p>url: <%= link_to post.link, "http://#{post.link}" %></p>
-            <p>tags: <%= post.all_tags %></p>
-          </div>
-
-          <div class="">
-            <% if post.user == current_user %>
-              <%= link_to 'Edit', edit_post_path(post) %>
-              <%= link_to "Delete", post_path(post), method: :delete %>
-            <% end %>
-          </div>
-        </div>
-
       </div>
 
   <% end %>

@@ -1,14 +1,28 @@
+body {
+  background-color: #dbd0c2;
+}
+
 .navbar {
  background-color: #C84540 ;
 }
 
 .navbar-text {
-  color: rgb(169, 29, 42);
-  font-size: 150%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.main-title-logo {
+  color: white;
+  margin: 0;
+  font-size: 250%;
 }
 
 .jumbotron {
   padding: 2em 5em;
+}
+
+.posts-row {
+  height: 140px;
 }
 
 .img-circle {
@@ -16,12 +30,34 @@
   margin: 9px;
 }
 
+.likes-count {
+  color: green;
+}
+
+.dislikes-count {
+  color: red;
+}
+
 .likes-dislikes {
-  margin: 5px 0px;
-  background-color: #dbd0c2;
+  text-align: center;
+  margin: 7px 0px;
+  height: 100%;
+  background-color: #f0f0f0;
 }
 
 .posts-content {
-  margin: 5px 0px;
-  background-color: #f0f0f0;
+  margin: 7px 0px;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+}
+
+.posted-by {
+  position: relative;
+}
+
+.posted-by .img {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
