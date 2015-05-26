@@ -32,7 +32,8 @@ feature 'users' do
 
     scenario 'sign in fails if not authenticated' do
       visit root_path
-      expect{ click_link 'Sign in with Github' }.to raise_error
+      click_link 'Sign in with Github'
+      expect(page).to have_content 'Github log in failed'
     end
   end
 
