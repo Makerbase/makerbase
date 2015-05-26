@@ -29,7 +29,6 @@ feature 'users' do
       visit root_path
       click_link 'Sign in with Github'
       expect(page).to have_content('Github log in failed')
-      expect{ click_link 'Sign in with Github' }.to raise_error
     end
   end
 

@@ -1,4 +1,4 @@
-<%= form_for @post do |f| %>
+<%= form_for @post, html: { id: "post_#{@post.id}" } do |f| %>
   <section>
     <div>
       <%= f.label :title %>
