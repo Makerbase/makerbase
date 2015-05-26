@@ -18,7 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def authenticate_organization
     return true if ENV['RAILS_ENV']="test"
     client = Octokit::Client.new :access_token => auth_hash['credentials']['token']
-    return client.org_member?(ENV['ORG_NAME'], client.user.login)
+    return client.organization_public_member?(ENV['ORG_NAME'], client.user.login)
   end
 
   protected
