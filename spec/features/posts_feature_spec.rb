@@ -49,31 +49,27 @@ feature 'posts' do
     end
   end
 
-  xcontext 'deleting post' do
-    before {Post.create title: 'Ultimate Resource', link: 'www.google.com', all_tags: 'ruby, makers, beginner'}
+  context 'deleting post' do
 
     scenario 'removes a post when a user clicks delete button' do
       visit posts_path
-      click_button 'Delete'
+      add_post
+      click_link 'Delete'
       expect(page).not_to have_content 'Ultimate Resource'
       expect(page).to have_content 'Post deleted'
     end
   end
 
-  # xcontext 'editing posts' do
-  #   before do
-  #     Post.create(title: 'Resource', link: 'www.google.com', post_all_tags: 'ruby, makers, beginner')
-  #   end
+  context 'editing posts' do
 
-  #   scenario 'let a user edit a restaurant' do
-  #     visit '/posts'
-  #     click_link 'Edit a link'
-  #     fill_in 'title', with: 'Ultimate Resource'
-  #     fill_in 'Link', with: 'www.google.com'
-  #     fill_in 'post_all_tags', with: 'ruby, makers, beginner'
-  #     click_button 'Update'
-  #     expect(page).to have_content 'Ultimate Resource'
-  #     # expect(current_path).to eq '/posts'
-  #   end
-  # end
+    scenario 'let a user edit a restaurant' do
+      visit posts_path
+      add_post
+      click_link 'Edit'
+      fill_in 'Title', with: 'New Resource'
+      fill_in 'Link', with: 'www.google.com'
+      click_button 'Update'
+      expect(page).to have_content 'New Resource'
+    end
+  end
 end
