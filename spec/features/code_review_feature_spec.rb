@@ -23,7 +23,7 @@ feature 'code review' do
   context 'review request has been added' do
 
     before do
-      Codereview.create(title: 'Please review my challenge')
+      request_code_review
     end
 
     scenario 'should display review request' do
@@ -63,9 +63,12 @@ feature 'code review' do
       expect(page).to have_link 'Edit'
     end
 
-    xscenario 'user can edit request' do
+    scenario 'user can edit request' do
       click_link 'Edit'
-
+      fill_in "Title", with: "omg review me"
+      click_button 'Submit'
+      expect(page).not_to have_content 'Please review my challenge'
+      expect(page).to have_content 'omg review me'
     end
 
     scenario 'another user cannot see edit link' do
