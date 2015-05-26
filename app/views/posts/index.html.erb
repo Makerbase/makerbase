@@ -1,4 +1,5 @@
 <% if @posts.any? %>
+  <span><button class="btn btn-default btn-xs"><%= link_to "All", posts_path %></button></span>
   <% Tag.all.each do |tag| %>
     <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
   <% end %>
