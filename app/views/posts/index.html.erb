@@ -1,4 +1,7 @@
+<button class="btn btn-default btn-large"><%= link_to 'Add a link', new_post_path %></button>
+
 <% if @posts.any? %>
+  <button class="btn btn-default btn-xs"><%= link_to "All", posts_path %></button>
   <% Tag.all.each do |tag| %>
     <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
   <% end %>
@@ -10,7 +13,7 @@
 
         <div>
           <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
-          <p><%= raw tag_links(post.all_tags) %></p>
+          <!-- <p><%= raw tag_links(post.all_tags) %></p> -->
         </div>
 
         <div>
@@ -37,4 +40,3 @@
 <% else %>
 No links yet
 <% end %>
-<button class="btn btn-default btn-large"><%= link_to 'Add a link', new_post_path %></button>

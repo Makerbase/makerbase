@@ -6,7 +6,7 @@ feature 'tagging system' do
 
   before :each do
     oauth_sign_in
-    visit '/posts'
+    visit posts_path
     add_post
     add_post('Another Resource', 'www.resources.com', 'tag1, tag2, tag3')
     expect(page).to have_content('Ultimate Resource')
@@ -18,7 +18,12 @@ feature 'tagging system' do
   end
 
   scenario 'all tags show up on resources page' do
-    expect(page).to have_content 'tag1'
+    expect(page).to have_content 'tag1, tag2, tag3'
+    expect(page).to have_content 'makers'
+  end
+
+  scenario 'post shows up when selecting a tag' do
+    click_link 'tag1'
     expect(page).to have_content 'makers'
   end
 end

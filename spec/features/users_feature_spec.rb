@@ -10,9 +10,14 @@ feature 'users' do
       expect(page).to have_link 'Sign in with Github'
     end
 
-    scenario 'redirected to home when trying to access other pages' do
+    scenario 'redirected to home when trying to access posts page' do
       visit posts_path
-      expect(current_path).to eq '/'
+      expect(current_path).to eq root_path
+    end
+
+    scenario 'redirected to home when trying to access new posts page' do
+      visit new_post_path
+      expect(page).to have_content 'Log in'
     end
 
     scenario 'should not see link to Resources' do
@@ -28,7 +33,8 @@ feature 'users' do
     scenario 'sign in fails if not authenticated' do
       visit root_path
       click_link 'Sign in with Github'
-      expect(page).to have_content('Github log in failed')
+      expect(page).to have_content 'Github log in failed'
+
     end
   end
 
@@ -78,7 +84,6 @@ feature 'users' do
       click_link 'Ultimate Resource'
       add_comment
       click_link 'Sign out'
-      # oauth_sign_out
       oauth_sign_in_2
       click_link 'Resources'
       click_link 'Ultimate Resource'
@@ -92,7 +97,6 @@ feature 'users' do
       click_link 'Ultimate Resource'
       add_comment
       click_link 'Sign out'
-      # oauth_sign_out
       oauth_sign_in_2
       click_link 'Resources'
       click_link 'Ultimate Resource'
