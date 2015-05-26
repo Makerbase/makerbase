@@ -2,7 +2,7 @@ body {
   /*background-color: rgb(169, 29, 42);*/
 }
 
-.navbar-header .navbar-text {
+.navbar-text {
   color: rgb(169, 29, 42);
   font-size: 150%;
 }
