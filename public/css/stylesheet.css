@@ -11,6 +11,10 @@ body {
   padding: 2em 5em;
 }
 
+.btn.btn-default {
+  margin-left: 0;
+}
+
 .img-circle {
   max-width: 50px;
   margin-left: 50px;

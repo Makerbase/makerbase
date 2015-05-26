@@ -7,7 +7,7 @@ class PostsController < ApplicationController
       if params[:tag]
         @posts = Post.tagged_with(params[:tag])
       else
-        @posts = Post.all
+        @posts = Post.order_by_likes
       end
     else
       redirect_to root_path
