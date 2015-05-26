@@ -1,4 +1,6 @@
-<p>Title: <%= @post.title %> </p>
+<%= link_to "Back to Resources", posts_path %>
+
+<p>Title: <%= link_to @post.title %> </p>
 <p>Link: <%= @post.link %></p>
 <p>Tags: <%= @post.all_tags %></p>
 <p>Description </p>

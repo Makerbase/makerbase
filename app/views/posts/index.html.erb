@@ -23,16 +23,17 @@
           </div>
 
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 posts-content">
-            <div>
-              <p><div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "http://#{post.link}" %></p>
-              <p>tags: <%= post.all_tags %></p>
-            </div>
+            <div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "http://#{post.link}" %>
 
-            <p class="post-title"><%= link_to post.title, post_path(post) %></p>
+            <div class="post-title"><%= post.title %></div>
+
+            <div class="post-comments"><%= link_to "Comments: ", post_path(post) %><span class="badge"><%= post.comments.count %></span></div>
 
             <div class="posted-by">
               posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle">
             </div>
+
+            <div>tags: <%= post.all_tags %></div>
 
             <div class="">
               <% if post.user == current_user %>
