@@ -1,5 +1,5 @@
-body {
-  /*background-color: rgb(169, 29, 42);*/
+.navbar {
+ background-color: #C84540 ;
 }
 
 .navbar-text {
@@ -11,25 +11,17 @@ body {
   padding: 2em 5em;
 }
 
-.btn.btn-default {
-  margin-left: 0;
-}
-
 .img-circle {
   max-width: 50px;
-  margin-left: 50px;
+  margin: 9px;
 }
 
-.post-title {
-  color: black;
-  font-size: x-large;
-  margin: 10px 0px 10px 0px;
-  text-decoration: underline;
-  text-align: center;
-  font-weight: bold;
-
+.likes-dislikes {
+  margin: 5px 0px;
+  background-color: #dbd0c2;
 }
 
-.btn {
-  margin: 0px 2px 2px 2px;
+.posts-content {
+  margin: 5px 0px;
+  background-color: #f0f0f0;
 }

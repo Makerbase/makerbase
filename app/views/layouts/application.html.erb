@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/paper/bootstrap.min.css">
   <link rel="stylesheet" href="/css/stylesheet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
@@ -18,7 +19,7 @@
             </a>
 
             <% if user_signed_in? %>
-              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn navbar-right" %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn pull-right" %>
               <img src="<%= current_user.image if current_user %>" class="img-circle pull-right">
             <% end %>
         </div>
