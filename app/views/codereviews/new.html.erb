@@ -1,14 +1,13 @@
 <%= form_for @codereview do |f| %>
-  <section>
-    <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
+  <div>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </div>
 
-    <div>
-      <%= f.label :url %>
-      <%= f.url_field :url %>
-    </div>
-  </section>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :title, id:"Title" %>
+  </div>
+
   <%= f.submit 'Submit' %>
 <% end %>
