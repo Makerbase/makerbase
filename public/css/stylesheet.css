@@ -62,7 +62,7 @@ body {
   display:inline-block;
   width: 75%;
   white-space: nowrap;
-  overflow:hidden !important;
+  overflow: scroll !important;
   text-overflow: ellipsis;
 }
 
@@ -114,9 +114,7 @@ body {
 .codereview-link-and-title {
   display:inline-block;
   width: 80%;
-  white-space: nowrap;
-  overflow:hidden !important;
-  text-overflow: ellipsis;
+  overflow:scroll !important;
 }
 
 h4 {
@@ -150,6 +148,8 @@ p {
 
 .code-review-link {
   background-color: #dbd0c2;
+  margin-top: 8px;
+  border-radius: 3px;
 }
 
 .codereview-posted-by {
@@ -159,4 +159,5 @@ p {
 .codereview-posted-by img {
   position: absolute;
   right: 0;
+  top: 20px;
 }
