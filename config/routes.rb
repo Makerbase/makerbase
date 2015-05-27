@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  get '/users', to: 'users#index', as: 'users'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'welcome#index'
 
   get 'tags/:tag', to: 'posts#index', as: 'tag'
+  get '/forum',  to: 'forums#index'
 
   resources :posts, shallow: true do
     resources :likes
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :codereviews
+  resources :questions
+
 
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

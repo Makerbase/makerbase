@@ -20,4 +20,11 @@ module UsersHelper
     fill_in 'Url', with: 'https://github.com/sanjsanj/gymbuddy'
     click_button 'Submit'
   end
+
+  def ask_question(title = 'What is code?', body = 'I have never heard of the word')
+    click_link 'Ask a question!'
+    fill_in 'question_title', with: title
+    fill_in 'question_body', with: body
+    click_button 'Ask'
+  end
 end

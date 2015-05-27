@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527074712) do
+ActiveRecord::Schema.define(version: 20150527090208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 20150527074712) do
   add_index "dislikes", ["post_id"], name: "index_dislikes_on_post_id", using: :btree
   add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
 
+  create_table "forums", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -67,6 +72,17 @@ ActiveRecord::Schema.define(version: 20150527074712) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "questions", ["user_id", "created_at"], name: "index_questions_on_user_id_and_created_at", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "post_id"
@@ -115,6 +131,7 @@ ActiveRecord::Schema.define(version: 20150527074712) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "questions", "users"
   add_foreign_key "taggings", "posts"
   add_foreign_key "taggings", "tags"
 end

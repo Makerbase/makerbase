@@ -34,6 +34,7 @@ feature 'users' do
       visit root_path
       click_link 'Sign in with Github'
       expect(page).to have_content 'Github log in failed'
+
     end
   end
 
