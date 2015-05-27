@@ -1,3 +1,7 @@
+* a {
+  text-decoration: none !important;
+}
+
 body {
   background-color: #f0f0f0;
 }

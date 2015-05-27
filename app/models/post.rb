@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
 
   scope :order_by_likes, -> { order('likes_count DESC') }
 
+  validates :link, uniqueness: true
+
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.where(name: name.strip).first_or_create!
