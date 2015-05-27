@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:github]
   has_many :posts
   has_many :likes, through: :posts
+  has_many :questions
+  has_many :liked_posts, through: :likes, source: :post #come back to this
+
 
   validates_presence_of :uid#, :github_token
   validates_uniqueness_of :uid, :name
