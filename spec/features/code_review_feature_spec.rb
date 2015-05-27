@@ -16,7 +16,7 @@ feature 'code review' do
     scenario 'should display a button to add a review' do
       visit codereviews_path
       expect(page).to have_content 'No reviews yet'
-      expect(page).to have_link 'Request review'
+      expect(page).to have_link 'Request Review'
     end
   end
 

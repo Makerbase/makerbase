@@ -1,8 +1,9 @@
-when deleting posts - tags are deleted through taggings. May need to try to delete through tags directly. Although works for now.
+each post has tags. question for questions.. mini-tutorials?
+users can store links for themselves?
 
-we have temporarily disabled: index page redirecting to landing page when not signed in. This is so that we can actually test the site ourselves.
-  - we x'd line 10 of posts feature spec
+forum has questions
+questions have answers
 
-at the moment we are displaying the email of the creator of a post, not the username. Need this from Git
+question has: title, body, author(username), likes, dislikes
 
-we had to have (maybe) non-restful links for liking and disliking posts.
+answer has: title, body, author(username), likes, dislikes

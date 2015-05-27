@@ -12,6 +12,7 @@ class CodereviewsController < ApplicationController
     if current_user
       @codereview = Codereview.new
     else
+      flash[:notice] = 'Duplicate Link'
       redirect_to root_path
     end
   end
@@ -22,6 +23,7 @@ class CodereviewsController < ApplicationController
     if @codereview.save
       redirect_to codereviews_path
     else
+      flash[:notice] = 'Duplicate Link'
       render 'new'
     end
   end

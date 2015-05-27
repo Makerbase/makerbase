@@ -1,18 +1,31 @@
-<a href="/codereviews/new">Request review</a>
+<h4>Code Reviews</h4>
+<div class="add-link"><%= link_to 'Request Review', new_codereview_path, class: "btn btn-primary btn-lg" %></div>
 
 <% if @codereviews.any? %>
   <% @codereviews.each do |codereview| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p><%= codereview.user.name if codereview.user %><img src="<%= codereview.user.image if codereview.user %>" class="img-circle"></p>
-        <p><%= codereview.title %></p>
-        <p><%= link_to codereview.url, url_for(codereview.url) %></p>
-        <% if codereview.user == current_user %>
-          <%= link_to "Edit", edit_codereview_path(codereview) %>
-          <%= link_to "Delete", codereview_path(codereview), method: :delete %>
-        <% end %>
+
+    <div class="">
+      <div class="posts-row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 code-reviews">
+
+          <div class="codereview-posted-by">
+            <a href="<%= codereview.user.gitpage if codereview.user %>"><img src="<%= codereview.user.image if codereview.user %>" class="img-circle"></a>
+          </div>
+
+          <div class="codereview-link-and-title">
+            <div class="code-review-link"><div class="glyphicon glyphicon-link"></div><%= link_to codereview.url, url_for(codereview.url) %></div>
+            <div class="post-title"><%= codereview.title %></div>
+          </div>
+
+          <% if codereview.user == current_user %>
+            <%= link_to "Edit", edit_codereview_path(codereview) %>
+            <%= link_to "Delete", codereview_path(codereview), method: :delete %>
+          <% end %>
+
+        </div>
       </div>
     </div>
+
   <% end %>
 <% else %>
   <h1>No reviews yet</h1>

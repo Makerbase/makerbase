@@ -31,6 +31,12 @@ feature 'posts' do
       expect(page).to have_content('Ultimate Resource')
       expect(page).to have_content('www.google.com')
     end
+
+    xscenario 'display posts by order of number of likes (descending)' do
+      visit posts_path
+      within()
+
+    end
   end
 
   context 'user adding posts' do

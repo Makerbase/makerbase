@@ -1,5 +1,33 @@
+* a {
+  text-decoration: none !important;
+}
+
 body {
   background-color: #f0f0f0;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  display: block;
+}
+
+#header {
+  display: block;
+}
+
+#content {
+  padding-bottom: 100px;
+  display: block;
+}
+
+#footer {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
 }
 
 .navbar {
@@ -15,14 +43,35 @@ body {
   color: white;
   margin: 0;
   font-size: 250%;
+  letter-spacing: 4px;
 }
 
 .jumbotron {
   padding: 2em 5em;
 }
 
+.btn {
+  margin: 10px 0;
+}
+
 .posts-row {
-  height: 140px;
+  height: 100px;
+}
+
+.posts-link-and-title {
+  display:inline-block;
+  width: 75%;
+  white-space: nowrap;
+  overflow: scroll !important;
+  text-overflow: ellipsis;
+}
+
+.post-title {
+  font-size: 128%;
+}
+
+.post-comments {
+  margin-top: -6px;
 }
 
 .img-circle {
@@ -54,12 +103,61 @@ body {
   border-radius: 0px 3px 3px 0px;
 }
 
+.code-reviews {
+  margin: 7px 0px;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.codereview-link-and-title {
+  display:inline-block;
+  width: 80%;
+  overflow:scroll !important;
+}
+
+h4 {
+  text-align: center;
+}
+
+.add-link {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.filter-tags {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 0px;
+  font-size: 110%;
+}
+
 .posted-by {
   position: relative;
 }
 
 .posted-by img {
   position: absolute;
-  top: 0;
+  top: -60px;
   right: 0;
+}
+
+.code-review-link {
+  background-color: #dbd0c2;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+
+.codereview-posted-by {
+  position: relative;
+}
+
+.codereview-posted-by img {
+  position: absolute;
+  right: 0;
+  top: 20px;
 }

@@ -1,0 +1,14 @@
+<%= form_for @question do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "What's your question? Be specific." %>
+  </div>
+
+  <div>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit 'Ask' %>
+  </div>
+<% end %>

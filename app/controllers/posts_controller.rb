@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     if current_user
       @post = Post.new
     else
+      flash[:notice] = 'Duplicate Link'
       redirect_to root_path
     end
   end
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
+      flash[:notice] = 'Duplicate Link'
       render 'new'
     end
   end
