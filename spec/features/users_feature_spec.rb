@@ -10,6 +10,25 @@ feature 'users' do
       expect(page).to have_link 'Sign in with Github'
     end
 
+    scenario 'trying to access code reviews' do
+      current_user = false
+      visit codereviews_path
+      expect(current_path).to eq root_path
+    end
+
+    scenario 'trying to create new code review' do
+      current_user = false
+      visit new_codereview_path
+      expect(current_path).to eq root_path
+    end
+
+    # scenario 'trying to create new post' do
+    #   current_user = false
+    #   visit new_post_path
+    #   expect(current_path).to eq root_path
+    # end    
+
+
     scenario 'redirected to home when trying to access posts page' do
       visit posts_path
       expect(current_path).to eq root_path
@@ -30,11 +49,11 @@ feature 'users' do
       expect(current_path).to eq '/users/sign_in'
     end
 
+
     scenario 'sign in fails if not authenticated' do
       visit root_path
       click_link 'Sign in with Github'
       expect(page).to have_content 'Github log in failed'
-
     end
   end
 
@@ -103,5 +122,22 @@ feature 'users' do
       click_button 'Delete Comment'
       expect(page).to have_content('Cannot delete a comment you haven\'t created')
     end
+
+    scenario 'trying to create new code review - flash message' do
+      request_code_review
+      visit root_path
+      request_code_review
+      expect(page).to have_content 'Duplicate Link'
+      expect(current_path).to eq codereviews_path
+    end
+
+    #  scenario 'should not be able to delete code review' do
+    #   request_code_review
+    #   click_link 'Sign out'
+    #   oauth_sign_in_2
+    #   visit '/codereviews/1'
+    #   expect(page).to have_content 'Cannot delete'
+    # end
+
   end
 end

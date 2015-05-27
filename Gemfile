@@ -29,4 +29,5 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'shoulda'
+  gem 'simplecov', :require => false
 end

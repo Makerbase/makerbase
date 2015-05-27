@@ -282,6 +282,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda
   shoulda-matchers
+  simplecov
   spring
   turbolinks
   uglifier (>= 1.3.0)

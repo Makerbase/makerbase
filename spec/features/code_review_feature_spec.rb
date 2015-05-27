@@ -80,5 +80,6 @@ feature 'code review' do
     scenario 'has URL for repository to be reviewed' do
       expect(page).to have_link 'https://github.com/sanjsanj/gymbuddy'
     end
+
   end
 end
