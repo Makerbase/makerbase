@@ -28,9 +28,10 @@
           </div>
 
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 posts-content">
-            <div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "http://#{post.link}" %>
-
-            <div class="post-title"><%= post.title %></div>
+            <div class="posts-link-and-title">
+              <div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "#{post.link}" %>
+              <div class="post-title"><%= post.title %></div>
+            </div>
 
             <div class="post-comments"><%= link_to "Comments: ", post_path(post) %><span class="badge"><%= post.comments.count %></span></div>
 
@@ -39,11 +40,11 @@
             </div>
 
             <div class="">
-              tags: <%= post.all_tags %>
               <% if post.user == current_user %>
                 <%= link_to 'Edit', edit_post_path(post) %>
                 <%= link_to "Delete", post_path(post), method: :delete %>
               <% end %>
+               | tags: <%= post.all_tags %>
             </div>
           </div>
 

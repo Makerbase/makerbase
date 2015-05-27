@@ -46,12 +46,28 @@ body {
   padding: 2em 5em;
 }
 
+.btn {
+  margin: 10px 0;
+}
+
 .posts-row {
   height: 100px;
 }
 
+.posts-link-and-title {
+  display:inline-block;
+  width: 75%;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
+}
+
 .post-title {
   font-size: 128%;
+}
+
+.post-comments {
+  margin-top: -6px;
 }
 
 .img-circle {
