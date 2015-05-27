@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :codereviews
-  resources :questions
+  resources :questions, shallow: true do
+    resources :answers
+  end
 
+  resources :codereviews
 
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

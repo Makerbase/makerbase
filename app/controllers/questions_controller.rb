@@ -17,15 +17,25 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question deleted'
       redirect_to '/forum'
     else
-      flash[:notice] = 'Not your question, tosser (said by Massud)'
+      flash[:notice] = 'Not your question'
       redirect_to '/forum'
     end
   end
 
   def show
+    @question = Question.find(params[:id])
+    @answers = @question.answers
+    # @answer = @question.answers.new
   end
 
   def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = current_user.questions.create(post_params)
+    flash[:notice] = "Question has been edited"
+    redirect_to '/forum'
   end
 
   private

@@ -1,2 +1,26 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<%= div_for @question do %>
+  <h3><%= @question.title %></h3>
+  <p><%= @question.body %></p>
+<% end %>
+
+
+<% if @answers.any? %>
+  <%= @answers.each do |answer| %>
+    <div>
+      <%= answer.body %>
+      <%= link_to 'Edit Answer', edit_answer_path(answer) %>
+      <%= button_to 'Delete Answer', answer_path(answer), method: :delete  %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Can you answer this question?</p>
+<% end %>
+
+
+<%= form_for [@question, @question.answers.new] do |f| %>
+  <div>
+    <p>Leave an answer: </p>
+    <%= f.text_area :body %>
+    <%= f.submit 'Post Your Answer' %>
+  </div>
+<% end %>
