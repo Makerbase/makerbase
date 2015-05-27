@@ -8,14 +8,14 @@
       <div class="posts-row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 code-reviews">
 
-          <div class="code-review-link"><div class="glyphicon glyphicon-link"></div><%= link_to codereview.url, url_for(codereview.url) %></div>
-
           <div class="codereview-posted-by">
             <a href="<%= codereview.user.gitpage if codereview.user %>"><img src="<%= codereview.user.image if codereview.user %>" class="img-circle"></a>
           </div>
 
-          <div class="post-title"><%= codereview.title %></div>
-
+          <div class="codereview-link-and-title">
+            <div class="code-review-link"><div class="glyphicon glyphicon-link"></div><%= link_to codereview.url, url_for(codereview.url) %></div>
+            <div class="post-title"><%= codereview.title %></div>
+          </div>
 
           <% if codereview.user == current_user %>
             <%= link_to "Edit", edit_codereview_path(codereview) %>

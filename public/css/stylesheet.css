@@ -111,6 +111,14 @@ body {
   border-radius: 3px;
 }
 
+.codereview-link-and-title {
+  display:inline-block;
+  width: 80%;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
+}
+
 h4 {
   text-align: center;
 }
