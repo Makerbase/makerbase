@@ -15,6 +15,7 @@ gem 'omniauth-github'
 gem 'octokit'
 
 gem 'rails_12factor', group: :production
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :development, :test do
   # gem 'launchy'
