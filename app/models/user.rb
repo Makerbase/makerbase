@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.nickname   # uses github username
       user.email = auth.info.email != nil ? auth.info.email : "#{auth.info.nickname}@mailinator.com"
       user.image = auth.image || auth.info.image
+      user.gitpage = auth.info.urls != nil ? auth.info.urls.GitHub : nil
     end
   end
 
