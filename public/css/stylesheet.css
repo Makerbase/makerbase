@@ -43,6 +43,7 @@ body {
   margin: 7px 0px;
   height: 100%;
   background-color: #dbd0c2;
+  border-radius: 3px 0px 0px 3px;
 }
 
 .posts-content {
@@ -50,6 +51,7 @@ body {
   height: 100%;
   overflow: auto;
   background-color: white;
+  border-radius: 0px 3px 3px 0px;
 }
 
 .posted-by {
