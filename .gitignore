@@ -27,3 +27,4 @@ bower.json
 
 .powenv
 .env
+./coverage
