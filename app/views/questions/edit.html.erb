@@ -1,2 +1,14 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<%= form_for @question do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "What's your question? Be specific." %>
+  </div>
+
+  <div>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit 'Ask' %>
+  </div>
+<% end %>

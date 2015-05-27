@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :likes, through: :posts
   has_many :questions
   has_many :liked_posts, through: :likes, source: :post #come back to this
+  has_many :answers
 
 
   validates_presence_of :uid#, :github_token
