@@ -1,13 +1,16 @@
-<%= form_for @codereview do |f| %>
-  <div>
-    <%= f.label :url %>
-    <%= f.url_field :url %>
-  </div>
+<div class="form-container text-center">
+  <%= form_for @codereview do |f| %>
+  <div class="form-title"><h2>Request Code Review</h2></div>
+    <div>
+      <div class="form-title"><%= f.label :url %></div>
+      <%= f.url_field :url, class: "form-field" %>
+    </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :title, id:"Title" %>
-  </div>
+    <div>
+      <div class="form-title"><%= f.label :description %></div>
+      <%= f.text_area :title, id:"Title", class: "form-field" %>
+    </div>
 
-  <%= f.submit 'Submit' %>
-<% end %>
+    <%= f.submit 'Submit', class: "submit-container" %>
+  <% end %>
+</div>
