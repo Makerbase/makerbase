@@ -30,7 +30,7 @@
             <div class="post-comments"><%= link_to "Comments: ", post_path(post) %><span class="badge"><%= post.comments.count %></span></div>
 
             <div class="posted-by">
-              posted by: <%= post.user.name if post.user %><a href="<%= post.user.gitpage %>"><img src="<%= post.user.image if post.user %>" class="img-circle"></a>
+              posted by: <%= post.user.name if post.user %><a href="<%= post.user.gitpage if post.user %>"><img src="<%= post.user.image if post.user %>" class="img-circle"></a>
             </div>
 
             <div>tags: <%= post.all_tags %></div>

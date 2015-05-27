@@ -30,7 +30,7 @@ feature 'users' do
       expect(current_path).to eq '/users/sign_in'
     end
 
-    xscenario 'sign in fails if not authenticated' do
+    scenario 'sign in fails if not authenticated' do
       visit root_path
       click_link 'Sign in with Github'
       expect(page).to have_content 'Github log in failed'
