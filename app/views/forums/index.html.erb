@@ -1,10 +1,14 @@
 <%= link_to "Ask a question!", new_question_path %>
+
 <% if @questions.any? %>
   <% @questions.each do |question| %>
     <div>
-      <%= question.title %>
+      <%= link_to question.title, question_path(question) %>
       <p>Asked by: <%= question.user.name %></p> 
-      <%= link_to 'Delete', question_path(question), method: :delete %>
+      <%= link_to 'Edit Question', edit_question_path(question) %>
+      <%= link_to 'Delete Question', question_path(question), method: :delete %>
+      <%= link_to 'Answer', question_path(question) %>
     </div>
   <% end %>
+  
 <% end %>
