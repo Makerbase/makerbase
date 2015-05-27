@@ -18,7 +18,7 @@ feature 'comments' do
 
   scenario 'allow users to leave a comment on a post' do
     visit posts_path
-    click_link 'Ultimate Resource'
+    click_link "Comments:"
     click_link 'Leave Comment'
     fill_in "Comments", with: "cool link"
     click_button 'Add Comment'
@@ -50,8 +50,5 @@ feature 'comments' do
   #   fill_in 'Comments', with: 'even better link'
   #   click_button 'Update'
   #   expect(page).to have_content 'even better link'
-  # end    
+  # end
 end
-
-
-

@@ -2,9 +2,9 @@
 
   <div class='wrapper text-center'>
     <div class="btn-group-vertical" role="group" aria-label="...">
-      <button type="button" class="btn btn-default"><a href="/posts">Resources</a>
-      <button type="button" class="btn btn-default"><a href="/forum">Forum</a>
-      <button type="button" class="btn btn-default"><a href="/codereviews">Code Review</a>
+      <a href="/posts" class="btn btn-primary btn-lg">Resources</a>
+      <a href="/codereviews" class="btn btn-primary btn-lg">Code Review</a>
+      <a href="/forum" class="btn btn-primary btn-lg">Forum</a>
     </div>
   </div>
 
@@ -12,10 +12,10 @@
 
   <div class="jumbotron">
     <h2>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis molestie nisi.
+      Read less, do more
     </h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis molestie.
+      A hub of essential resources for Makers students
     </p>
     <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: "btn btn-primary btn-lg" %>
   </div>

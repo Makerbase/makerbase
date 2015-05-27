@@ -1,41 +1,56 @@
-<button class="btn btn-default btn-large"><%= link_to 'Add a link', new_post_path %></button>
+<h4>Resources</h4>
+<div class="add-link"><%= link_to 'Add a link', new_post_path, class: "btn btn-primary btn-lg" %></div>
 
 <% if @posts.any? %>
-  <button class="btn btn-default btn-xs"><%= link_to "All", posts_path %></button>
-  <% Tag.all.each do |tag| %>
-    <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
-  <% end %>
+
+  <div class="filter-tags">
+    Filter by tags:
+    <%= link_to "All", posts_path, class: "btn btn-primary btn-xs" %>
+    <% Tag.all.each do |tag| %>
+      <span><button class="btn btn-default btn-xs"><%= tag_link(tag) %></button></span>
+    <% end %>
+  </div>
+
   <% @posts.each do |post| %>
-    <article>
 
-      <div class="panel panel-default">
-        <p class="post-title"><%= link_to post.title, post_path(post) %></p>
+      <div class="">
+        <div class="posts-row">
 
-        <div>
-          <p>posted by: <%= post.user.name if post.user %><img src="<%= post.user.image if post.user %>" class="img-circle"></p>
-          <!-- <p><%= raw tag_links(post.all_tags) %></p> -->
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 likes-dislikes">
+            <p>
+              <%= link_to 'Like', post_likes_path(post), method: :post %>
+            </p>
+            <p class="likes-count"><%= post.likes.count %></p>
+            <p class="dislikes-count"><%= post.dislikes.count %></p>
+            <p>
+              <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
+            </p>
+          </div>
+
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 posts-content">
+            <div class="posts-link-and-title">
+              <div class="glyphicon glyphicon-link"></div> <%= link_to post.link, "#{post.link}" %>
+              <div class="post-title"><%= post.title %></div>
+            </div>
+
+            <div class="post-comments"><%= link_to "Comments: ", post_path(post) %><span class="badge"><%= post.comments.count %></span></div>
+
+            <div class="posted-by">
+              <a href="<%= post.user.gitpage if post.user %>"><img src="<%= post.user.image if post.user %>" class="img-circle"></a>
+            </div>
+
+            <div class="">
+              <% if post.user == current_user %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to "Delete", post_path(post), method: :delete %>
+              <% end %>
+               | tags: <%= post.all_tags %>
+            </div>
+          </div>
+
         </div>
-
-        <div>
-          <p>url: <%= link_to post.link, "http://#{post.link}" %></p>
-          <p>tags: <%= post.all_tags %></p>
-        </div>
-
-        <div class="buttons-posts">
-          <%= link_to 'Like', post_likes_path(post), method: :post %>
-          <%= link_to 'Dislike', post_dislikes_path(post), method: :post %>
-
-          <% if post.user == current_user %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to "Delete", post_path(post), method: :delete %>
-          <% end %>
-        </div>
-
-        <p class="glyphicon glyphicon-hand-up" >Likes: <%= post.likes.count %></p>
-        <p class="glyphicon glyphicon-hand-down" >Dislikes: <%= post.dislikes.count %></p>
       </div>
 
-    </article>
   <% end %>
 <% else %>
 No links yet

@@ -10,7 +10,8 @@ module OmniauthHelper
       :credentials => { :token => "a" },
       :info => {
         :nickname => 'sanjsanj',
-        :email => 'sanj@sanj.com'
+        :email => 'sanj@sanj.com',
+        :urls => { :GitHub => "https://github.com/sanj" }
       }
     })
     visit root_path
@@ -28,7 +29,8 @@ module OmniauthHelper
       :credentials => { :token => "b" },
       :info => {
         :nickname => 'bob',
-        :email => 'bob@sanj.com'
+        :email => 'bob@sanj.com',
+        :urls => { :GitHub => "https://github.com/bob" }
       }
     })
     visit root_path

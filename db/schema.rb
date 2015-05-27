@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20150527090208) do
     t.string   "uid"
     t.string   "name"
     t.string   "image"
+    t.string   "gitpage"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
