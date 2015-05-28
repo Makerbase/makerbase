@@ -1,16 +1,18 @@
-<div class="form-container text-center">
-  <%= form_for @codereview do |f| %>
-  <div class="form-title"><h2>Edit Code Review Request</h2></div>
-    <div>
-      <div class="form-title"><%= f.label :url %></div>
-      <%= f.url_field :url, class: "form-field" %>
-    </div>
+<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+  <div class="text-center">
+    <%= form_for @codereview do |f| %>
+    <div class="form-title"><h4>Edit Code Review Request</h4></div>
+      <div>
+        <div class="form-title"><%= f.label :url %></div>
+        <%= f.url_field :url, class: "form-field" %>
+      </div>
 
-    <div>
-      <div class="form-title"><%= f.label :description %></div>
-      <%= f.text_area :title, id:"Title", class: "form-field" %>
-    </div>
+      <div>
+        <div class="form-title"><%= f.label :description %></div>
+        <%= f.text_area :title, id:"Title", class: "form-field" %>
+      </div>
 
-    <%= f.submit 'Submit', class: "submit-container" %>
-  <% end %>
+      <%= f.submit 'Submit', class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>

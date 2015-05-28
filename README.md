@@ -38,6 +38,12 @@ interviews
 questionnaire
 adjustment
 
+###Technologies:
+----------------
+
+Rails, PostgreSQL, Rspec, Capybara
+
+
 ###User Stories:
 -------------
 
@@ -131,6 +137,8 @@ Forum
     questions can be deleted
     questions can be edited
     user answers question
+    user deletes answer
+    user edits answer
 
 posts
   no posts/resources have been added

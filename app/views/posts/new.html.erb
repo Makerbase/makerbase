@@ -1,22 +1,23 @@
-<div class="form-container text-center">
-  <%= form_for @post, html: { id: "post_#{@post.id}" } do |f| %>
-  <div class="form-title"><h2>New Resource</h2></div>
-    <section>
-      <div>
-        <div class="form-title"><%= f.label :title %></div>
-        <%= f.text_field :title, class: "form-field" %>
-      </div>
+<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+  <div class="text-center">
+    <%= form_for @post, html: { id: "post_#{@post.id}" } do |f| %>
+    <div class="form-title"><h4>New Resource</h4></div>
+        <div>
+          <div class="form-title"><%= f.label :title %></div>
+          <%= f.text_field :title, placeholder: "Enter Title", class: "form-field" %>
+        </div>
 
-      <div>
-        <div class="form-title"><%= f.label :link %></div>
-        <%= f.text_field :link, class: "form-field" %>
-      </div>
+        <div>
+          <div class="form-title"><%= f.label :link %></div>
+          <%= f.text_field :link, placeholder: "Enter URL", class: "form-field" %>
+        </div>
 
-      <div>
-        <%= f.label :tags %>
-        <%= f.text_field :all_tags, placeholder: "Tags seperated with comma", class: "form-field" %>
-      </div>
-    </section>
-    <%= f.submit 'Submit', class: "submit-container" %>
-  <% end %>
+        <div>
+          <div class="form-title"><%= f.label :tags %></div>
+          <%= f.text_field :all_tags, placeholder: "Tags seperated with comma", class: "form-field" %>
+        </div>
+        
+      <%= f.submit 'Submit', class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
