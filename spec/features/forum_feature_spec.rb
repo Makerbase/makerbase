@@ -53,5 +53,27 @@ feature 'Forum' do
       expect(page).to have_content('Code is life')
       expect(current_path).to eq "/questions/#{Question.first.id}"
     end
+
+    scenario 'user deletes answer' do
+      click_link 'Forum'
+      ask_question
+      click_link 'Answer'
+      fill_in 'answer_body', with: 'Code is life'
+      click_button 'Post Your Answer'
+      click_button 'Delete Answer'
+      expect(page).not_to have_content('Code is life')
+    end
+
+    scenario 'user edits answer' do
+      click_link 'Forum'
+      ask_question
+      click_link 'Answer'
+      fill_in 'answer_body', with: 'Code is life'
+      click_button 'Post Your Answer'
+      click_link 'Edit Answer'
+      fill_in 'answer_body', with: 'Another answer'
+      click_button 'Post Your Answer'
+      expect(page).to have_content('Another answer')
+    end
   end
 end

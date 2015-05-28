@@ -1,11 +1,8 @@
-# require 'simplecov'
-# SimpleCov.start
-
 require 'coveralls'
 Coveralls.wear!
 
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+# require "codeclimate-test-reporter"
+# CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
 
