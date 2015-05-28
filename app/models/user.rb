@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.nickname   # uses github username
-      user.email = auth.info.email != nil ? auth.info.email : "#{auth.info.nickname}@mailinator.com"
+      user.email = ((auth.info.email == nil) || (auth.info.email == "")) ? "#{auth.info.nickname}@mailinator.com" : auth.info.email
       user.image = auth.image || auth.info.image
       user.gitpage = auth.info.urls != nil ? auth.info.urls.GitHub : nil
     end

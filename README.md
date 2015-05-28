@@ -3,11 +3,33 @@
 
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)  [![Test Coverage](https://codeclimate.com/github/Makerbase/makerbase/badges/coverage.svg)](https://codeclimate.com/github/Makerbase/makerbase/coverage)
 
-[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
+#####[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
+
+###Index:
+---------
+
+
+###Screenshots:
+---------------
 
 SS
 
-brief
+###Brief:
+---------
+To create a tutorial, resource and knowledge sharing website.
+
+###Our Approach:
+----------------
+
+We started the conversation with our coaches so we could determine what our goals and MVP were.  Very early on they indicated that the in-house engineering team at [Makers](http://www.makersacademy.com) were intending to do something very similar to this for internal use by students only.  They also indicated some added functionality they wanted to include.
+
+Seeing as they were our client we decided to roll with it.  We brainstormed what we would want out of a site like this and what we, as students ourselves, would have found helpful during our time.
+
+With that we designed a survey that students, past and present, answered to help us slimline our concept and find an MVP.  The top three items were aggregation and rating of resources (internal and external), an avenue to solicit more code reviews, and lastly a [Stack Overflow](http://www.stackoverflow.com)-clone where they could ask for very basic advice safe in the knowledge that they wouldn't get shot down.
+
+#####[Survey Results](https://docs.google.com/forms/d/1_F1q0ns_k1sXZH_N6QzURXs-20X1mr1VLXO5iFzmTmQ/viewanalytics)
+
+Our MVP became the aggregation and rating of resources, and an important factor to bear in mind
 
 workflow
 discussion
@@ -16,7 +38,7 @@ interviews
 questionnaire
 adjustment
 
-####User Stories:
+###User Stories:
 -------------
 
 ```
