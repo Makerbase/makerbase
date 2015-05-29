@@ -1,6 +1,8 @@
 #MakerBase
 ----------
 
+###Work In Progress - Alpha Version
+
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)
 
 ##[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
@@ -16,32 +18,26 @@ SS
 
 ###Brief:
 ---------
+
 To create a tutorial, resource and knowledge sharing website.
 
 ###Our Approach:
 ----------------
 
-We started the conversation with our coaches so we could determine what our goals and MVP were.  Very early on they indicated that the in-house engineering team at [Makers](http://www.makersacademy.com) were intending to do something very similar to this for internal use by students only.  They also indicated some added functionality they wanted to include.
+We started the conversation with our coaches so we could determine what our goals and MVP were.  Very early on they indicated that the in-house engineering team at [Makers](http://www.makersacademy.com) were intending to do something similar for internal use by students, coaches and alumni.  They also indicated some added functionality they wanted to include.
 
-Seeing as they were our client we decided to roll with it.  We brainstormed what we would want out of a site like this and what we, as students ourselves, would have found helpful during our time.
+Seeing as they were our client we decided to roll with it.  We brainstormed what we would want out of a site like this and what we, as students ourselves, would have found helpful during our time here.
 
-With that we designed a survey that students, past and present, answered to help us slimline our concept and find an MVP.  The top three items were aggregation and rating of resources (internal and external), an avenue to solicit more code reviews, and lastly a [Stack Overflow](http://www.stackoverflow.com)-clone where they could ask for very basic advice safe in the knowledge that they wouldn't get shot down.
+With that we designed a survey that students, past and present, answered to help us slimline our concept and isolate an MVP.  The top three items were aggregation and rating of resources (internal and external), an avenue to solicit more code reviews, and a [Stack Overflow](http://www.stackoverflow.com)-clone where they could ask for very basic advice safe in the knowledge that they wouldn't get shot down.
 
 #####[Survey Results](https://docs.google.com/forms/d/1_F1q0ns_k1sXZH_N6QzURXs-20X1mr1VLXO5iFzmTmQ/viewanalytics)
 
 Armed with that knowledge we set off with our MVP and bonus features, and wrote our user stories.
 
-workflow
-discussion
-mvp
-interviews
-questionnaire
-adjustment
-
 ###Technologies:
 ----------------
 
-Rails, PostgreSQL, Rspec, Capybara
+Rails, PostgreSQL, Devise, Omniauth, Octokit, Rspec, Capybara, HTML, CSS
 
 
 ###User Stories:
@@ -107,12 +103,13 @@ I want to be able to filter by tag
 
 Tests:
 ------
+
 ```
 WelcomeController
   GET #index
     returns http success
 
-code review
+Code review
   no review requests have been added
     should display a button to add a review
   review request has been added
@@ -127,7 +124,7 @@ code review
     another user cannot see edit link
     has URL for repository to be reviewed
 
-comments
+Comments
   allow users to leave a comment on a post
 
 Forum
@@ -140,7 +137,7 @@ Forum
     user deletes answer
     user edits answer
 
-posts
+Posts
   no posts/resources have been added
     should prompt to add a post
   posts/resources have been added
@@ -153,7 +150,7 @@ posts
   editing posts
     let a user edit a restaurant
 
-ratings system (likes and dislikes)
+Ratings system (likes and dislikes)
   user rates resource
     likes a resource, which updates like count by one
     user dislikes a resource, which updates dislike count by one
@@ -164,11 +161,11 @@ ratings system (likes and dislikes)
     user likes a resource and likes again
     user likes a resource and redirects to posts_path
 
-tagging system
+Tagging system
   all tags show up on resources page
   post shows up when selecting a tag
 
-users
+Users
   when not signed in
     should see link to sign in
     trying to access code reviews
@@ -228,5 +225,5 @@ User
   should have many likes through posts
   should have many liked_posts
 
-78 examples, 0 failures, 8 pending
+80 examples, 0 failures
 ```
