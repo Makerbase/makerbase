@@ -14,7 +14,9 @@
 ###Screenshots:
 ---------------
 
-SS
+![makerbase jumbotron](http://sanjsanj.github.io/images/week11_makerbase_jumbotron.png)
+
+![makerbase logo](http://sanjsanj.github.io/images/week11_makerbase_logo.png)
 
 ###Brief:
 ---------
