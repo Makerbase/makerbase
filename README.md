@@ -1,11 +1,13 @@
 #MakerBase
 ----------
 
-###Work In Progress - Alpha Version
+###Work In Progress
 
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)
 
 ##[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
+
+##[View the MakerBASE presentation slides](https://prezi.com/uv_ga42bbuvk/welcome/?utm_campaign=share&utm_medium=copy)
 
 ###Index:
 ---------
