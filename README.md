@@ -2,13 +2,25 @@
 
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)
 
+
+###Table of contents:
+
+- [Use MakerBASE on Heroku](#)
+- [View the MakerBASE presentation slides](#)
+- [Brief](#brief)
+- [Our approach](#our-approach)
+		- [Survey results](#survey-results)
+- [Technologies](#technologies)
+- [User stories](#user-stories)
+- [Meet the team](#meet-the-team)
+- [Development blog](#development-blog)
+- [Tests](#tests)
+
+----------
+
 ##[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
 
 ##[View the MakerBASE presentation slides](https://prezi.com/uv_ga42bbuvk/welcome/?utm_campaign=share&utm_medium=copy)
-
----------
-
-###Table of contents:
 
 
 ![makerbase jumbotron](http://sanjsanj.github.io/images/week11_makerbase_jumbotron.png)
@@ -106,6 +118,15 @@ I want to be able to filter by tag
 ```
 
 ------
+
+###Meet the team:
+
+- [Jacob](https://github.com/jaymuk)
+- [Massud](https://github.com/massud)
+- [Maciek](https://github.com/maciejk77)
+- <img src="https://avatars3.githubusercontent.com/u/4478671?v=3&s=80">[Sanj](https://github.com/sanjsanj)
+
+-----------
 
 ###Development blog:
 
