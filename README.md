@@ -1,8 +1,6 @@
 #MakerBase
 ----------
 
-###Work In Progress
-
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)
 
 ##[Use MakerBASE on Heroku](http://makerbase.herokuapp.com)
@@ -25,6 +23,8 @@
 
 To create a tutorial, resource and knowledge sharing website.
 
+Makerbase is a web app designed to help the Makers Academy students and community. Access to the app is granted through Github authentication. The idea is to aggregate content evaluated by Makers and provide a basic platform for information exchange. Key features are community curated content aggregation, simplicity (“don’t make me think” interface) and responsiveness for tablets and mobile devices.
+
 ###Our Approach:
 ----------------
 
@@ -41,7 +41,7 @@ Armed with that knowledge we set off with our MVP and bonus features, and wrote 
 ###Technologies:
 ----------------
 
-Rails, PostgreSQL, Devise, Omniauth, Octokit, Rspec, Capybara, HTML, CSS
+Rspec, Capybara, Rails, PostgreSQL, Devise, Omniauth, Octokit, HTML and CSS
 
 
 ###User Stories:
