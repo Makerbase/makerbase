@@ -1,5 +1,4 @@
 #MakerBase
-----------
 
 [![Build Status](https://travis-ci.org/Makerbase/makerbase.svg?branch=master)](https://travis-ci.org/Makerbase/makerbase)  [![Coverage Status](https://coveralls.io/repos/Makerbase/makerbase/badge.svg?branch=master)](https://coveralls.io/r/Makerbase/makerbase?branch=master)  [![Code Climate](https://codeclimate.com/github/Makerbase/makerbase/badges/gpa.svg)](https://codeclimate.com/github/Makerbase/makerbase)
 
@@ -7,26 +6,26 @@
 
 ##[View the MakerBASE presentation slides](https://prezi.com/uv_ga42bbuvk/welcome/?utm_campaign=share&utm_medium=copy)
 
-###Index:
 ---------
 
+###Table of contents:
 
-###Screenshots:
----------------
 
 ![makerbase jumbotron](http://sanjsanj.github.io/images/week11_makerbase_jumbotron.png)
 
 ![makerbase logo](http://sanjsanj.github.io/images/week11_makerbase_logo.png)
 
-###Brief:
 ---------
+
+###Brief:
 
 To create a tutorial, resource and knowledge sharing website.
 
 Makerbase is a web app designed to help the Makers Academy students and community. Access to the app is granted through Github authentication. The idea is to aggregate content evaluated by Makers and provide a basic platform for information exchange. Key features are community curated content aggregation, simplicity (“don’t make me think” interface) and responsiveness for tablets and mobile devices.
 
-###Our Approach:
 ----------------
+
+###Our approach:
 
 We started the conversation with our coaches so we could determine what our goals and MVP were.  Very early on they indicated that the in-house engineering team at [Makers](http://www.makersacademy.com) were intending to do something similar for internal use by students, coaches and alumni.  They also indicated some added functionality they wanted to include.
 
@@ -34,18 +33,19 @@ Seeing as they were our client we decided to roll with it.  We brainstormed what
 
 With that we designed a survey that students, past and present, answered to help us slimline our concept and isolate an MVP.  The top three items were aggregation and rating of resources (internal and external), an avenue to solicit more code reviews, and a [Stack Overflow](http://www.stackoverflow.com)-clone where they could ask for very basic advice safe in the knowledge that they wouldn't get shot down.
 
-#####[Survey Results](https://docs.google.com/forms/d/1_F1q0ns_k1sXZH_N6QzURXs-20X1mr1VLXO5iFzmTmQ/viewanalytics)
+#####[Survey results](https://docs.google.com/forms/d/1_F1q0ns_k1sXZH_N6QzURXs-20X1mr1VLXO5iFzmTmQ/viewanalytics)
 
 Armed with that knowledge we set off with our MVP and bonus features, and wrote our user stories.
 
-###Technologies:
 ----------------
+
+###Technologies:
 
 Rspec, Capybara, Rails, PostgreSQL, Devise, Omniauth, Octokit, HTML and CSS
 
-
-###User Stories:
 -------------
+
+###User stories:
 
 ```
 As a Maker who has too many logins to remember
@@ -105,8 +105,21 @@ So I can see the relevant information
 I want to be able to filter by tag  
 ```
 
-Tests:
 ------
+
+###Development blog:
+
+Mon | Tue | Wed | Thu | Fri | Sat | Sun
+
+:---: | :---: | :---: | :---: | :---: | :---: | :---:
+
+[Day 1](http://sanjsanj.github.io/Week%2010,%20Day%201/) | [Day 2](http://sanjsanj.github.io/Week%2010,%20Day%202/) | [Day 3](http://sanjsanj.github.io/Week%2010,%20Day%203/) | [Day 4](http://sanjsanj.github.io/Week%2010,%20Day%204/) | [Day 5](http://sanjsanj.github.io/Week%2010,%20Day%205/) | [Day 6](http://sanjsanj.github.io/Week%2010,%20Day%206/) | [Day 7](http://sanjsanj.github.io/Week%2010,%20Day%207/)
+
+[Day 8](http://sanjsanj.github.io/Week%2011,%20Day%201/) | [Day 9](http://sanjsanj.github.io/Week%2011,%20Day%202/) | [Day 10](http://sanjsanj.github.io/Week%2011,%20Day%203/) | [Day 11](http://sanjsanj.github.io/Week%2011,%20Day%204/) | [Day 12](http://sanjsanj.github.io/Week%2011,%20Day%205/) | [Day 13](http://sanjsanj.github.io/Week%2011,%20Day%206/)
+
+-------
+
+###Tests:
 
 ```
 WelcomeController
