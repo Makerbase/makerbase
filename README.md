@@ -123,7 +123,7 @@ I want to be able to filter by tag
 
 [Jacob](https://github.com/jaymuk) | [Massud](https://github.com/massud) | [Maciek](https://github.com/maciejk77) | [Sanj](https://github.com/sanjsanj)  
 :---: | :---: | :---: | :---:  
-<img src="https://avatars1.githubusercontent.com/u/7001177?v=3&s=80"> | <img src="https://avatars3.githubusercontent.com/u/10505910?v=3&s=80"> | <img src="https://avatars2.githubusercontent.com/u/11005277?v=3&s=80"> | <img src="https://avatars3.githubusercontent.com/u/4478671?v=3&s=80">
+<img src="https://avatars1.githubusercontent.com/u/7001177?v=3&s=80" style="max-width: 80px;"> | <img src="https://avatars3.githubusercontent.com/u/10505910?v=3&s=80"> | <img src="https://avatars2.githubusercontent.com/u/11005277?v=3&s=80"> | <img src="https://avatars3.githubusercontent.com/u/4478671?v=3&s=80">
 
 -----------
 
