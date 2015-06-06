@@ -109,12 +109,9 @@ I want to be able to filter by tag
 
 ###Development blog:
 
-Mon | Tue | Wed | Thu | Fri | Sat | Sun
-
-:---: | :---: | :---: | :---: | :---: | :---: | :---:
-
-[Day 1](http://sanjsanj.github.io/Week%2010,%20Day%201/) | [Day 2](http://sanjsanj.github.io/Week%2010,%20Day%202/) | [Day 3](http://sanjsanj.github.io/Week%2010,%20Day%203/) | [Day 4](http://sanjsanj.github.io/Week%2010,%20Day%204/) | [Day 5](http://sanjsanj.github.io/Week%2010,%20Day%205/) | [Day 6](http://sanjsanj.github.io/Week%2010,%20Day%206/) | [Day 7](http://sanjsanj.github.io/Week%2010,%20Day%207/)
-
+Mon | Tue | Wed | Thu | Fri | Sat | Sun  
+:---: | :---: | :---: | :---: | :---: | :---: | :---:  
+[Day 1](http://sanjsanj.github.io/Week%2010,%20Day%201/) | [Day 2](http://sanjsanj.github.io/Week%2010,%20Day%202/) | [Day 3](http://sanjsanj.github.io/Week%2010,%20Day%203/) | [Day 4](http://sanjsanj.github.io/Week%2010,%20Day%204/) | [Day 5](http://sanjsanj.github.io/Week%2010,%20Day%205/) | [Day 6](http://sanjsanj.github.io/Week%2010,%20Day%206/) | [Day 7](http://sanjsanj.github.io/Week%2010,%20Day%207/)  
 [Day 8](http://sanjsanj.github.io/Week%2011,%20Day%201/) | [Day 9](http://sanjsanj.github.io/Week%2011,%20Day%202/) | [Day 10](http://sanjsanj.github.io/Week%2011,%20Day%203/) | [Day 11](http://sanjsanj.github.io/Week%2011,%20Day%204/) | [Day 12](http://sanjsanj.github.io/Week%2011,%20Day%205/) | [Day 13](http://sanjsanj.github.io/Week%2011,%20Day%206/)
 
 -------
